@@ -8,8 +8,8 @@ import 'package:udeme_demo/res/component.dart';
 import '../widget/appbar.dart';
 import '../widget/register.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePageMobile extends StatelessWidget {
+  const HomePageMobile({Key? key}) : super(key: key);
 
 
   @override

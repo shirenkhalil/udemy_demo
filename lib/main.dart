@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:udeme_demo/home/main_home.dart';
 import 'package:udeme_demo/res/component.dart';
 
-import 'home/screen/home_page.dart';
+import 'home/screen/home_page_desktop.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-      home:HomePage(),
+      home:MainHome(),
     );
   }
 }

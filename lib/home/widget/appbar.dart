@@ -30,18 +30,20 @@ class Appbar extends StatelessWidget {
             onPressed: (){},
           ),
           SizeBoxWidth(context),
-          Container(
-            width: Width (context)*0.5,
-            height:Height (context)*0.1,
-            child: textFormFieldItem(
-              context: context,
-              controller:textController,
-              onTap: (){},
-              prefixIcon: Icons.search_sharp,
-              hintText: 'Search for anything',
-              bordRadius: 30,
+          Expanded(
+            child: Container(
+              width: Width (context)*0.5,
+              height:Height (context)*0.1,
+              child: textFormFieldItem(
+                context: context,
+                controller:textController,
+                onTap: (){},
+                prefixIcon: Icons.search_sharp,
+                hintText: 'Search for anything',
+                bordRadius: 30,
 
-            ),),
+              ),),
+          ),
           SizeBoxWidth(context),
           textButtonItem(
             text: 'AboutUs',
