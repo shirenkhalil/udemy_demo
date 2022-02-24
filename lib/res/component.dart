@@ -32,28 +32,25 @@ Widget textFormFieldItem({
   Function()? onTap,
 }) {
   var Width = MediaQuery.of(context).size.width;
-  return Padding(
-    padding: const EdgeInsets.all(15),
-    child: TextFormField(
-      controller: controller,
-      onFieldSubmitted: onSubmit,
-      onTap: onTap,
-      decoration: InputDecoration(
-        hintText: hintText,
-        prefixStyle: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
+  return TextFormField(
+    controller: controller,
+    onFieldSubmitted: onSubmit,
+    onTap: onTap,
+    decoration: InputDecoration(
+      hintText: hintText,
+      prefixStyle: TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+      ),
+      border: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: color,
+          width: Width*0.03,
         ),
-        border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: color,
-            width: Width*0.03,
-          ),
-          borderRadius: BorderRadius.circular(bordRadius!),
-        ),
-        prefixIcon: Icon(
-          prefixIcon,
-        ),
+        borderRadius: BorderRadius.circular(bordRadius!),
+      ),
+      prefixIcon: Icon(
+        prefixIcon,
       ),
     ),
   );

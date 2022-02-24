@@ -14,13 +14,17 @@ class HomePageDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var textController=TextEditingController();
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
+        appBar:PreferredSize(
+            preferredSize: Size.fromHeight(70.0),
+        child:AppBarWidget() ,
+        ),
         body: SingleChildScrollView (
           child: Column(
             children: [
-             Appbar(),
               SizeBoxHeight(context),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

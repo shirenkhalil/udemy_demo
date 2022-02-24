@@ -20,7 +20,7 @@ class HomePageTablet extends StatelessWidget {
         body: SingleChildScrollView (
           child: Column(
             children: [
-             Appbar(),
+             AppBar(),
               SizeBoxHeight(context),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
