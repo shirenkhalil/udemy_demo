@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 const Color color = Colors.black87;
 const Color green = Colors.lightGreen;
  Color orange = Colors.blue.shade900;
+ Color green1 = Colors.green.shade200;
+ Color iconGreen = Colors.green.shade600;
+
 
 double  Width(context) => MediaQuery.of(context).size.width;
 double  Height(context)=>MediaQuery.of(context).size.height;
@@ -22,43 +25,112 @@ Widget textButtonItem({
       ));
 }
 
+// Widget textFormFieldItem({
+//   context,
+//   String? hintText,
+//   TextEditingController? controller,
+//   IconData? prefixIcon,
+//   double? bordRadius = 10,
+//   Function(String)? onSubmit,
+//   Function()? onTap,
+// }) {
+//   var Width = MediaQuery.of(context).size.width;
+//   return TextFormField(
+//     controller: controller,
+//     onFieldSubmitted: onSubmit,
+//     onTap: onTap,
+//     decoration: InputDecoration(
+//       hintText: hintText,
+//       prefixStyle: TextStyle(
+//         fontSize: 20,
+//         fontWeight: FontWeight.bold,
+//       ),
+//       border: OutlineInputBorder(
+//         borderSide: BorderSide(
+//           color: color,
+//           width: Width*0.03,
+//         ),
+//         borderRadius: BorderRadius.circular(bordRadius!),
+//       ),
+//       prefixIcon: Icon(
+//         prefixIcon,
+//       ),
+//     ),
+//   );
+// }
+
 Widget textFormFieldItem({
-  context,
+  String? labelText,
   String? hintText,
+  TextInputType? keyboardTextInputType,
   TextEditingController? controller,
+  bool isPassword =false,
   IconData? prefixIcon,
-  double? bordRadius = 10,
-  Function(String)? onSubmit,
-  Function()? onTap,
+  IconData? suffixIcon,
+  double? bordRadius =10,
+  Function ()? suffixPressed,
+  Function (String)? onSubmit,
+  Function (String)? onChange,
+  Function ()? onTap,
+  String? Function (String?)? validate,
+   Color? iconColor ,
 }) {
-  var Width = MediaQuery.of(context).size.width;
-  return TextFormField(
-    controller: controller,
-    onFieldSubmitted: onSubmit,
-    onTap: onTap,
-    decoration: InputDecoration(
-      hintText: hintText,
-      prefixStyle: TextStyle(
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-      ),
-      border: OutlineInputBorder(
-        borderSide: BorderSide(
-          color: color,
-          width: Width*0.03,
+  return Padding(
+    // padding: const EdgeInsets.all(15),
+    padding: const EdgeInsets.only(bottom: 15,left: 20,right:20),
+    child: TextFormField(
+      validator: validate,
+      controller: controller,
+      onChanged: onChange,
+      onFieldSubmitted: onSubmit,
+      obscureText: isPassword,
+      onTap: onTap,
+      keyboardType: keyboardTextInputType,
+      decoration: InputDecoration(
+        hintText: hintText,
+        labelText: labelText,
+        labelStyle: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
         ),
-        borderRadius: BorderRadius.circular(bordRadius!),
-      ),
-      prefixIcon: Icon(
-        prefixIcon,
+        prefixStyle: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
+        suffixStyle: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(bordRadius!),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: green,
+            width: 3,
+          ),
+          borderRadius: BorderRadius.circular(bordRadius),
+        ),
+        enabledBorder:OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.black,
+            width: 1,
+          ),
+          borderRadius: BorderRadius.circular(bordRadius),
+        ),
+              prefixIcon: Icon(prefixIcon,color:iconColor),
+        suffixIcon: suffixIcon != null ? IconButton(
+          icon: Icon(suffixIcon,color: iconColor,),
+          onPressed: suffixPressed,) : null,
       ),
     ),
   );
 }
 
-Widget iconButton({
+
+  Widget iconButton({
   IconData? icon,
-  void Function()? function,
+  void Function()? onPressed,
   Color? color,
 }) {
   return IconButton(
@@ -67,28 +139,31 @@ Widget iconButton({
       size: 25,
       color: color,
     ),
-    onPressed: function,
+    onPressed:onPressed,
   );
 }
 
 Widget ButtonItem({
-  double? width,
-  double? height,
+  double? width=150,
+  double? height=48,
   String? text,
   bool isUpperCase =true,
   double? borderRadius =10,
+  double? elevation = 5,
   final void Function()? onPressed,
-  final Color? backgroundColor,
+  final Color? backgroundColor = green,
 }){
   return Container(
     height: height,
     width:width,
-    // padding:EdgeInsets.symmetric(vertical: 20,horizontal: 40),
     decoration:BoxDecoration(
       borderRadius: BorderRadius.circular(borderRadius!),
       color: backgroundColor,
     ),
     child: TextButton(
+      style: ButtonStyle(
+        elevation: MaterialStateProperty.all(elevation),
+      ),
       onPressed: onPressed,
       child: Text(
         isUpperCase ? text!.toUpperCase(): text!,
@@ -110,7 +185,7 @@ Widget iconButtonItems({
     children: [
       iconButton(
         icon: icon,
-        function: function,
+        onPressed: function,
         color: color,
       ),
       Container(
@@ -150,8 +225,8 @@ Widget SizeBoxHeight(context) {
   return SizedBox(
    height: Height(context) * 0.1,
   );}
-TextStyle  WritingStyle (){
-  return  TextStyle(
+TextStyle  WritingStyle () {
+  return TextStyle(
     color: Colors.black,
     fontWeight: FontWeight.normal,
     fontSize: 14,

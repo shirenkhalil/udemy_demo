@@ -4,9 +4,11 @@ import 'package:udeme_demo/res/component.dart';
 
 import 'home/screen/home_page_desktop.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+
+ Future <void> main() async{
+WidgetsFlutterBinding.ensureInitialized(); // للتاكد من انتهاء كل waiting function
+runApp(const MyApp());
+ }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

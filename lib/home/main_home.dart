@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:udeme_demo/home/screen/home_page_desktop.dart';
+import 'package:udeme_demo/home/screen/home_page_mobile.dart';
 import 'package:udeme_demo/res/responsive.dart';
 
 class MainHome extends StatefulWidget {
@@ -13,7 +14,7 @@ class MainHome extends StatefulWidget {
 
 class _MainHomeState extends State<MainHome> {
   @override
-  void initState() {
+  void   initState() {
     super.initState();
   }
 
@@ -26,9 +27,7 @@ class _MainHomeState extends State<MainHome> {
   Widget build(BuildContext context) {
     return Responsive(
       desktop: HomePageDesktop(),
-      mobile: Container(
-        color: Colors.blue,
-      ),
+      mobile: HomePageMobile(),
       tablet: Container(
         color: Colors.red,
       ),

@@ -1,7 +1,7 @@
 
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:udeme_demo/home/widget/course_item.dart';
 import 'package:udeme_demo/home/widget/right_image.dart';
 import 'package:udeme_demo/res/component.dart';
 
@@ -14,7 +14,7 @@ class HomePageDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var textController=TextEditingController();
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -35,14 +35,71 @@ class HomePageDesktop extends StatelessWidget {
                 ],
               ),
               SizeBoxHeight(context),
-              Text(
-                'Browser our Top courses',
-                style: TextStyle(
-                  color: orange,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 40,
+              Container(
+                width:  Width(context),
+                height:Height(context)* 0.9,
+                color: green1,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Browser our Top courses',
+                      style: TextStyle(
+                        color: orange,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 40,
+                      ),
+                      maxLines: 2,
+                    ),
+                    SizedBox(height: 40,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Container(
+                              height: 50,
+                              width: 50,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                            ),
+                            iconButton(
+                              onPressed: (){},
+                              icon: Icons.arrow_back_ios_sharp,
+                            ),
+                          ],
+                        ),
+                        CourseItem(),
+                        SizeBoxWidth(context),
+                        CourseItem(),
+                        SizeBoxWidth(context),
+                        CourseItem(),
+                        Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Container(
+                              height: 50,
+                              width: 50,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                            ),
+                            iconButton(
+                              onPressed: (){},
+                              icon: Icons.arrow_forward_ios,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-                maxLines: 2,
               ),
             ],
           ),
@@ -51,5 +108,4 @@ class HomePageDesktop extends StatelessWidget {
     );
   }
 }
-
 
