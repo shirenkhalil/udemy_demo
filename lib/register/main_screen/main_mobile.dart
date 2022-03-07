@@ -1,22 +1,20 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:udeme_demo/home/main_screen/home_zoom_drawer_mobile.dart';
-import 'package:udeme_demo/home/mobile_screen/categories.dart';
-import 'package:udeme_demo/home/mobile_screen/menu_screen.dart';
-import 'package:udeme_demo/res/component.dart';
+import 'package:udeme_demo/main.dart';
 
-// ignore: must_be_immutable
-class RegisterForm extends StatefulWidget {
+import '../../res/component.dart';
+import '../../res/main_mobile/zoom_drawer_mobile.dart';
+
+class MainMobileRegister extends StatefulWidget {
+  MainMobileRegister({Key? key}) : super(key: key);
 
   @override
-  State<RegisterForm> createState() => RegisterFormState();
+  _MainMobileRegisterState createState() {
+    return _MainMobileRegisterState();
+  }
 }
 
-class RegisterFormState extends State<RegisterForm> {
+class _MainMobileRegisterState extends State<MainMobileRegister> {
   var emailControl = TextEditingController();
   var nameControl = TextEditingController();
   var passwordControl = TextEditingController();
@@ -31,7 +29,7 @@ class RegisterFormState extends State<RegisterForm> {
           elevation: 0,
           // MenuWidget(),
           leading: IconButton(
-            onPressed:() => Get.to(()=>HomePageMobile()),
+            onPressed:() => Get.toNamed(HOME),
             icon:Icon(
               Icons.menu,
               color: mobColor,

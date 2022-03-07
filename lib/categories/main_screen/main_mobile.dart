@@ -1,18 +1,22 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:udeme_demo/home/main_screen/home_zoom_drawer_mobile.dart';
-import 'package:udeme_demo/res/component.dart';
 
-// ignore: must_be_immutable
-class Courses extends StatefulWidget {
+import '../../res/component.dart';
+import '../../res/main_mobile/zoom_drawer_mobile.dart';
+
+class MainMobileCategories extends StatefulWidget {
+  MainMobileCategories({Key? key}) : super(key: key);
 
   @override
-  State<Courses> createState() => CoursesState();
+  _MainMobileCategoriesState createState() {
+    return _MainMobileCategoriesState();
+  }
 }
 
-class CoursesState extends State<Courses> {
+class _MainMobileCategoriesState extends State<MainMobileCategories> {
+  var emailControl = TextEditingController();
+  var passwordControl = TextEditingController();
+
+  bool  isPassword =true;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +33,7 @@ class CoursesState extends State<Courses> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              titleRow(context: context,text: 'our courses'),
+              titleRow(context: context,text: 'Categories'),
             ],
           ),
         ),

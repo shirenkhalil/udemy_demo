@@ -1,21 +1,18 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:udeme_demo/home/main_screen/home_zoom_drawer_mobile.dart';
-import 'package:udeme_demo/res/component.dart';
 
-// ignore: must_be_immutable
-class AboutUs extends StatefulWidget {
+import '../../res/component.dart';
+import '../../res/main_mobile/zoom_drawer_mobile.dart';
+
+class MainMobileNotification extends StatefulWidget {
+  MainMobileNotification({Key? key}) : super(key: key);
 
   @override
-  State< AboutUs> createState() => AboutUsState();
+  _MainMobileNotificationState createState() {
+    return _MainMobileNotificationState();
+  }
 }
 
-class AboutUsState extends State< AboutUs> {
-  var emailControl = TextEditingController();
-  var passwordControl = TextEditingController();
-
-  bool  isPassword =true;
+class _MainMobileNotificationState extends State<MainMobileNotification> {
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +29,7 @@ class AboutUsState extends State< AboutUs> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              titleRow(context: context,text: 'About us'),
-
+              titleRow(context: context,text: 'Notification'),
             ],
           ),
         ),

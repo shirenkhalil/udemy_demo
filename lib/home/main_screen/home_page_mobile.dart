@@ -2,17 +2,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:udeme_demo/home/main_screen/home_zoom_drawer_mobile.dart';
+import 'package:udeme_demo/res/main_mobile/zoom_drawer_mobile.dart';
 import 'package:udeme_demo/res/component.dart';
 
 // ignore: must_be_immutable
-class My_Learning extends StatefulWidget {
+class MainMobileHome extends StatefulWidget {
 
   @override
-  State<My_Learning> createState() => My_LearningState();
+  State<MainMobileHome> createState() => MainMobileHomeState();
 }
 
-class My_LearningState extends State<My_Learning> {
+class MainMobileHomeState extends State<MainMobileHome> {
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class My_LearningState extends State<My_Learning> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              titleRow(context: context,text: 'My Learning'),
+              titleRow(context: context,text: 'our courses'),
             ],
           ),
         ),

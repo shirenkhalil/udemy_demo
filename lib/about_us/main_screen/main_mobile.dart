@@ -1,23 +1,18 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:udeme_demo/home/main_screen/home_zoom_drawer_mobile.dart';
-import 'package:udeme_demo/res/component.dart';
 
+import '../../res/component.dart';
+import '../../res/main_mobile/zoom_drawer_mobile.dart';
 
-
-
-// ignore: must_be_immutable
-class Categories extends StatefulWidget {
-
-
+class MainMobileAboutUs extends StatefulWidget {
+  MainMobileAboutUs({Key? key}) : super(key: key);
 
   @override
-  State<Categories> createState() => CategoriesState();
+  _MainMobileAboutUsState createState() {
+    return _MainMobileAboutUsState();
+  }
 }
 
-class CategoriesState extends State<Categories> {
+class _MainMobileAboutUsState extends State<MainMobileAboutUs> {
   var emailControl = TextEditingController();
   var passwordControl = TextEditingController();
 
@@ -38,7 +33,8 @@ class CategoriesState extends State<Categories> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              titleRow(context: context,text: 'Categories'),
+              titleRow(context: context,text: 'About us'),
+
             ],
           ),
         ),

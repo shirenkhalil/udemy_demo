@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:udeme_demo/home/main_screen/home_page_desktop.dart';
-import 'package:udeme_demo/home/main_screen/home_zoom_drawer_mobile.dart';
+import 'package:udeme_demo/home/main_screen/home_page_mobile.dart';
+import 'package:udeme_demo/res/main_mobile/zoom_drawer_mobile.dart';
 import 'package:udeme_demo/res/responsive.dart';
 
 class MainHome extends StatefulWidget {
@@ -26,11 +27,9 @@ class _MainHomeState extends State<MainHome> {
   @override
   Widget build(BuildContext context) {
     return Responsive(
-      desktop: HomePageDesktop(),
-      mobile:  HomePageMobile(),
-      tablet: Container(
-        color: Colors.red,
-      ),
+      desktop: MainDesktopHome(),
+      mobile:  DrawerMobile(),
+      tablet: MainMobileHome(),
     );
   }
 }

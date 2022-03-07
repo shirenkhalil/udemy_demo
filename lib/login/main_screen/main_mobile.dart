@@ -1,29 +1,24 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:udeme_demo/home/main_screen/home_zoom_drawer_mobile.dart';
-import 'package:udeme_demo/home/mobile_screen/register-form.dart';
-import 'package:udeme_demo/res/component.dart';
+import 'package:udeme_demo/main.dart';
 
+import '../../res/component.dart';
+import '../../res/main_mobile/zoom_drawer_mobile.dart';
 
-
-
-// ignore: must_be_immutable
-class RegisterScreen extends StatefulWidget {
-
-
+class MainMobileLogin extends StatefulWidget {
+  MainMobileLogin({Key? key}) : super(key: key);
 
   @override
-  State<RegisterScreen> createState() => RegisterScreenState();
+  _MainMobileLoginState createState() {
+    return _MainMobileLoginState();
+  }
 }
 
-class RegisterScreenState extends State<RegisterScreen> {
-var emailControl = TextEditingController();
-var passwordControl = TextEditingController();
+class _MainMobileLoginState extends State<MainMobileLogin> {
+  var emailControl = TextEditingController();
+  var passwordControl = TextEditingController();
 
- bool  isPassword =true;
+  bool  isPassword =true;
 
   @override
   Widget build(BuildContext context) {
@@ -55,10 +50,10 @@ var passwordControl = TextEditingController();
                 isPassword: isPassword,
                 keyboardTextInputType: TextInputType.number,
                 labelText: 'Enter your Password',
-               prefixIcon: Icons.lock_outline,
-               suffixIcon: isPassword ?Icons.visibility_sharp: Icons.visibility_off_sharp,
+                prefixIcon: Icons.lock_outline,
+                suffixIcon: isPassword ?Icons.visibility_sharp: Icons.visibility_off_sharp,
                 iconColor: mobColor,
-               suffixPressed: () {
+                suffixPressed: () {
                   setState(() {
                     isPassword =!isPassword;
                   });},),
@@ -71,7 +66,7 @@ var passwordControl = TextEditingController();
               SizedBox(height:15,),
               ButtonItem(
                 onPressed: () {
-                  Get.to(()=> RegisterForm() );
+                  Get.toNamed(REGISTER);
                 },
                 text: 'Register',
                 backgroundColor: mobColor,

@@ -1,19 +1,18 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:udeme_demo/home/main_screen/home_zoom_drawer_mobile.dart';
+import 'package:udeme_demo/res/main_mobile/zoom_drawer_mobile.dart';
 import 'package:udeme_demo/res/component.dart';
 
 // ignore: must_be_immutable
-class NotificationPage extends StatefulWidget {
+class Setting extends StatefulWidget {
 
   @override
-  State<NotificationPage> createState() => NotificationPageState();
+  State<Setting> createState() => SettingState();
 }
 
-class NotificationPageState extends State<NotificationPage> {
+class SettingState extends State<Setting> {
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +29,8 @@ class NotificationPageState extends State<NotificationPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              titleRow(context: context,text: 'Notification'),
-            ],
+              titleRow(context: context,text: 'Setting'),
+              ],
           ),
         ),
       ),

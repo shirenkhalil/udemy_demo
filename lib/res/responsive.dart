@@ -35,7 +35,8 @@ class Responsive extends StatelessWidget {
         }
         // If width it less then 1100 and more then 650 we consider it as tablet
         else if (constraints.maxWidth >= 650) {
-          return tablet;
+         // return tablet;
+          return mobile;
         }
         // Or less then that we called it mobile
         else {

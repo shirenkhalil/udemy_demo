@@ -8,8 +8,8 @@ import 'package:udeme_demo/res/component.dart';
 import '../desktop_parts/appbar.dart';
 import '../desktop_parts/register.dart';
 
-class HomePageDesktop extends StatelessWidget {
-  const HomePageDesktop({Key? key}) : super(key: key);
+class MainDesktopHome extends StatelessWidget {
+  const MainDesktopHome({Key? key}) : super(key: key);
 
 
   @override
