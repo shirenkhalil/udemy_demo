@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:udeme_demo/res/component.dart';
+import 'package:get/get.dart';
 
 // ignore: must_be_immutable
 class Register extends StatelessWidget {
@@ -40,7 +41,7 @@ double width = 400;
           SizedBox(height: Height(context)*0.04,),
           ButtonItem(
             text: 'register',
-            onPressed: (){},
+            onPressed: () {},
           ),
         ],
       ),

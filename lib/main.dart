@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:udeme_demo/home/main_home.dart';
 import 'package:udeme_demo/res/component.dart';
 
 import 'home/screen/home_page_desktop.dart';
 
 
- Future <void> main() async{
+ Future <void > main() async {
 WidgetsFlutterBinding.ensureInitialized(); // للتاكد من انتهاء كل waiting function
 runApp(const MyApp());
  }
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(

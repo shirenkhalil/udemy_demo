@@ -1,83 +1,91 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 const Color color = Colors.black87;
 const Color green = Colors.lightGreen;
- Color orange = Colors.blue.shade900;
- Color green1 = Colors.green.shade200;
- Color iconGreen = Colors.green.shade600;
+Color orange = Colors.blue.shade900;
+Color green1 = Colors.green.shade200;
+Color iconGreen = Colors.green.shade600;
+Color mobColor = Colors.blueGrey[300]!;
 
+double Width(context) => MediaQuery.of(context).size.width;
 
-double  Width(context) => MediaQuery.of(context).size.width;
-double  Height(context)=>MediaQuery.of(context).size.height;
-
+double Height(context) => MediaQuery.of(context).size.height;
 
 Widget textButtonItem({
   final void Function()? onPressed,
   String? text,
   Color? color,
+  double? size = 15,
 }) {
   return TextButton(
       onPressed: onPressed,
       child: Text(
         text!,
         style: TextStyle(
-            color: color, fontSize: 15, fontWeight: FontWeight.normal),
+            color: color, fontSize: size, fontWeight: FontWeight.normal),
       ));
 }
 
-// Widget textFormFieldItem({
-//   context,
-//   String? hintText,
-//   TextEditingController? controller,
-//   IconData? prefixIcon,
-//   double? bordRadius = 10,
-//   Function(String)? onSubmit,
-//   Function()? onTap,
-// }) {
-//   var Width = MediaQuery.of(context).size.width;
-//   return TextFormField(
-//     controller: controller,
-//     onFieldSubmitted: onSubmit,
-//     onTap: onTap,
-//     decoration: InputDecoration(
-//       hintText: hintText,
-//       prefixStyle: TextStyle(
-//         fontSize: 20,
-//         fontWeight: FontWeight.bold,
-//       ),
-//       border: OutlineInputBorder(
-//         borderSide: BorderSide(
-//           color: color,
-//           width: Width*0.03,
-//         ),
-//         borderRadius: BorderRadius.circular(bordRadius!),
-//       ),
-//       prefixIcon: Icon(
-//         prefixIcon,
-//       ),
-//     ),
-//   );
-// }
+Widget titleText({
+  String? text,
+}) {
+  return Text(text!,
+      style: GoogleFonts.bebasNeue(
+        color: Colors.black,
+        fontWeight: FontWeight.normal,
+        fontSize: 35,
+      ));
+}
+
+Widget logoImage(
+  context,
+) {
+  return Image(
+    image: AssetImage('web/assets/images/ourbooks .png'),
+    height: 100,
+    width: 100,
+    fit: BoxFit.fill,
+  );
+}
+
+Widget titleRow({
+  context,
+  String? text,
+}) {
+  return Row(
+    children: [
+      logoImage(
+        context,
+      ),
+      Container(
+          padding: EdgeInsets.all(30),
+          child: titleText(
+            text: text,
+          )),
+    ],
+  );
+}
 
 Widget textFormFieldItem({
   String? labelText,
   String? hintText,
   TextInputType? keyboardTextInputType,
   TextEditingController? controller,
-  bool isPassword =false,
+  bool isPassword = false,
   IconData? prefixIcon,
   IconData? suffixIcon,
-  double? bordRadius =10,
-  Function ()? suffixPressed,
-  Function (String)? onSubmit,
-  Function (String)? onChange,
-  Function ()? onTap,
-  String? Function (String?)? validate,
-   Color? iconColor ,
+  double? bordRadius = 10,
+  Function()? suffixPressed,
+  Function(String)? onSubmit,
+  Function(String)? onChange,
+  Function()? onTap,
+  String? Function(String?)? validate,
+  Color? iconColor,
 }) {
   return Padding(
     // padding: const EdgeInsets.all(15),
-    padding: const EdgeInsets.only(bottom: 15,left: 20,right:20),
+    padding: const EdgeInsets.only(bottom: 15, left: 20, right: 20),
     child: TextFormField(
       validator: validate,
       controller: controller,
@@ -111,24 +119,29 @@ Widget textFormFieldItem({
           ),
           borderRadius: BorderRadius.circular(bordRadius),
         ),
-        enabledBorder:OutlineInputBorder(
+        enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: Colors.black,
             width: 1,
           ),
           borderRadius: BorderRadius.circular(bordRadius),
         ),
-              prefixIcon: Icon(prefixIcon,color:iconColor),
-        suffixIcon: suffixIcon != null ? IconButton(
-          icon: Icon(suffixIcon,color: iconColor,),
-          onPressed: suffixPressed,) : null,
+        prefixIcon: Icon(prefixIcon, color: iconColor),
+        suffixIcon: suffixIcon != null
+            ? IconButton(
+                icon: Icon(
+                  suffixIcon,
+                  color: iconColor,
+                ),
+                onPressed: suffixPressed,
+              )
+            : null,
       ),
     ),
   );
 }
 
-
-  Widget iconButton({
+Widget iconButton({
   IconData? icon,
   void Function()? onPressed,
   Color? color,
@@ -139,24 +152,24 @@ Widget textFormFieldItem({
       size: 25,
       color: color,
     ),
-    onPressed:onPressed,
+    onPressed: onPressed,
   );
 }
 
 Widget ButtonItem({
-  double? width=150,
-  double? height=48,
+  double? width = 150,
+  double? height = 48,
   String? text,
-  bool isUpperCase =true,
-  double? borderRadius =10,
+  bool isUpperCase = true,
+  double? borderRadius = 10,
   double? elevation = 5,
   final void Function()? onPressed,
   final Color? backgroundColor = green,
-}){
+}) {
   return Container(
     height: height,
-    width:width,
-    decoration:BoxDecoration(
+    width: width,
+    decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(borderRadius!),
       color: backgroundColor,
     ),
@@ -166,16 +179,12 @@ Widget ButtonItem({
       ),
       onPressed: onPressed,
       child: Text(
-        isUpperCase ? text!.toUpperCase(): text!,
-        style: TextStyle(color:Colors.white),
+        isUpperCase ? text!.toUpperCase() : text!,
+        style: TextStyle(color: Colors.white),
       ),
-
     ),
   );
 }
-
-
-
 
 Widget iconButtonItems({
   IconData? icon,
@@ -220,12 +229,16 @@ Widget iconButtonItems({
 Widget SizeBoxWidth(context) {
   return SizedBox(
     width: Width(context) * 0.008,
-  );}
+  );
+}
+
 Widget SizeBoxHeight(context) {
   return SizedBox(
-   height: Height(context) * 0.1,
-  );}
-TextStyle  WritingStyle () {
+    height: Height(context) * 0.1,
+  );
+}
+
+TextStyle WritingStyle() {
   return TextStyle(
     color: Colors.black,
     fontWeight: FontWeight.normal,

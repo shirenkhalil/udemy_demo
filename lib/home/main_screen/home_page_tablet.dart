@@ -2,11 +2,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:udeme_demo/home/widget/right_image.dart';
+import 'package:udeme_demo/home/desktop_parts/right_image.dart';
 import 'package:udeme_demo/res/component.dart';
 
-import '../widget/appbar.dart';
-import '../widget/register.dart';
+import '../desktop_parts/appbar.dart';
+import '../desktop_parts/register.dart';
 
 class HomePageTablet extends StatelessWidget {
   const HomePageTablet({Key? key}) : super(key: key);
