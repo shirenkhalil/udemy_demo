@@ -6,11 +6,14 @@ import 'package:udeme_demo/categories/main_categories.dart';
 import 'package:udeme_demo/res/main_mobile/menu_screen.dart';
 
 import 'package:udeme_demo/setting/main_about_us.dart';
-import 'package:udeme_demo/my_courses/main_my_courses.dart';
+import 'package:udeme_demo/my_courses/main_courses.dart';
 import 'package:udeme_demo/my_learning/main_my_learning.dart';
 import 'package:udeme_demo/notification/main_notification.dart';
 import 'package:udeme_demo/register/main_register.dart';
 import 'package:udeme_demo/res/component.dart';
+
+import '../../courses/main_courses.dart';
+import '../../login/main_login.dart';
 
 final drawerController = ZoomDrawerController();
 
@@ -34,14 +37,15 @@ class _HomePageState extends State<DrawerMobile> {
             currentItem: currentItem,
             onSelectedItem: (item) {
               setState(() => currentItem = item);
+
               ZoomDrawer.of(context)!.close();
             }),
       ),
       style: DrawerStyle.Style1,
-      borderRadius: 20.0,
+      borderRadius: 40.0,
       showShadow: true,
       angle: 0.0,
-      backgroundColor: Colors.blueGrey[100]!,
+      backgroundColor: Colors.blueGrey[600]!,
       // slideWidth: MediaQuery.of(context).size.width *(ZoomDrawer.isRTL()? .45 :0.65),
       openCurve: Curves.fastLinearToSlowEaseIn,
       closeCurve: Curves.bounceInOut,
@@ -62,8 +66,8 @@ class _HomePageState extends State<DrawerMobile> {
         return MainNotification();
       case MenuItems.setting:
         return MainSetting();
-      case MenuItems.register:
-        return MainRegister();
+      case MenuItems.login:
+        return MainLogin();
       case MenuItems.aboutUs:
         return MainAboutUs();
       default:

@@ -17,13 +17,16 @@ Widget textButtonItem({
   String? text,
   Color? color,
   double? size = 15,
+
 }) {
   return TextButton(
       onPressed: onPressed,
-      child: Text(
-        text!,
-        style: TextStyle(
-            color: color, fontSize: size, fontWeight: FontWeight.normal),
+      child: Container(
+        child: Text(
+          text!,
+          style: TextStyle(
+              color: color, fontSize: size, fontWeight: FontWeight.normal),
+        ),
       ));
 }
 
@@ -53,17 +56,20 @@ Widget titleRow({
   context,
   String? text,
 }) {
-  return Row(
-    children: [
-      logoImage(
-        context,
-      ),
-      Container(
-          padding: EdgeInsets.all(30),
-          child: titleText(
-            text: text,
-          )),
-    ],
+  return Padding(
+    padding: const EdgeInsets.only(top: 8,),
+    child: Row(
+      children: [
+        Container(
+            // padding: EdgeInsets.all(20),
+            child: titleText(
+              text: text,
+            )),
+       Spacer(),
+        logoImage(context,),
+
+      ],
+    ),
   );
 }
 
@@ -82,61 +88,59 @@ Widget textFormFieldItem({
   Function()? onTap,
   String? Function(String?)? validate,
   Color? iconColor,
+  double bottom =15,
+  double left =20,
+  double right =20,
+  double top =0,
 }) {
-  return Padding(
-    // padding: const EdgeInsets.all(15),
-    padding: const EdgeInsets.only(bottom: 15, left: 20, right: 20),
-    child: TextFormField(
-      validator: validate,
-      controller: controller,
-      onChanged: onChange,
-      onFieldSubmitted: onSubmit,
-      obscureText: isPassword,
-      onTap: onTap,
-      keyboardType: keyboardTextInputType,
-      decoration: InputDecoration(
-        hintText: hintText,
-        labelText: labelText,
-        labelStyle: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-        ),
-        prefixStyle: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-        ),
-        suffixStyle: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(bordRadius!),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: green,
-            width: 3,
-          ),
-          borderRadius: BorderRadius.circular(bordRadius),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.black,
-            width: 1,
-          ),
-          borderRadius: BorderRadius.circular(bordRadius),
-        ),
-        prefixIcon: Icon(prefixIcon, color: iconColor),
-        suffixIcon: suffixIcon != null
-            ? IconButton(
-                icon: Icon(
-                  suffixIcon,
-                  color: iconColor,
-                ),
-                onPressed: suffixPressed,
-              )
-            : null,
+  return TextFormField(
+    validator: validate,
+    controller: controller,
+    onChanged: onChange,
+    onFieldSubmitted: onSubmit,
+    obscureText: isPassword,
+    onTap: onTap,
+    keyboardType: keyboardTextInputType,
+    decoration: InputDecoration(
+      hintText: hintText,
+      labelText: labelText,
+      labelStyle: TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
       ),
+      prefixStyle: TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+      ),
+      suffixStyle: TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(bordRadius!),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: green,
+          width: 3,
+        ),
+        borderRadius: BorderRadius.circular(bordRadius),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Colors.black,
+          width: 1,
+        ),
+        borderRadius: BorderRadius.circular(bordRadius),
+      ),
+      prefixIcon: Icon(prefixIcon, color: iconColor),
+      suffixIcon: suffixIcon != null ? IconButton(
+              icon: Icon(
+                suffixIcon,
+                color: iconColor,
+              ),
+              onPressed: suffixPressed,
+            ) : null,
     ),
   );
 }
@@ -149,7 +153,7 @@ Widget iconButton({
   return IconButton(
     icon: Icon(
       icon,
-      size: 25,
+      size: 30,
       color: color,
     ),
     onPressed: onPressed,
@@ -185,6 +189,38 @@ Widget ButtonItem({
     ),
   );
 }
+
+Widget ButtonCategoriesItem({
+  double? width = 130,
+  double? height = 48,
+  String? text,
+  bool isUpperCase = true,
+  double? borderRadius = 20,
+  double? elevation = 5,
+  final void Function()? onPressed,
+  context,
+
+}) {
+  return Container(
+    height: height,
+    width: width,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(borderRadius!),
+      color: Colors.white,
+      border:Border.all(color: Colors.black,width: 3, ),
+    ),
+    child: TextButton(
+      onPressed: onPressed,
+      child: Text(
+        isUpperCase ? text!.toUpperCase() : text!,
+        style: TextStyle(color: Colors.black,fontSize: 14),
+      ),
+    ),
+  );
+}
+
+
+
 
 Widget iconButtonItems({
   IconData? icon,

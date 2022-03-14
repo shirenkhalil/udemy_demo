@@ -25,6 +25,9 @@ class _MainNotificationState extends State<MainNotification> {
 
   @override
   Widget build(BuildContext context) {
-    return Responsive(mobile: MainMobileNotification(), tablet: MainMobileNotification(), desktop: MainDesktopNotification());
+    return Responsive(
+        mobile: MainMobileNotification(),
+        tablet: MainMobileNotification(),
+        desktop: MainDesktopNotification());
   }
 }

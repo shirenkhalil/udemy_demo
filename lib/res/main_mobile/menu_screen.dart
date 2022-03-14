@@ -2,12 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:udeme_demo/res/component.dart';
 
+import '../../register/main_screen/main_mobile.dart';
+
 
 
 class MenuPage extends StatelessWidget {
+
   final MenuItem currentItem;
   final ValueChanged<MenuItem> onSelectedItem;
-  const MenuPage({
+   MenuPage({
     Key? key,
     required this.currentItem,
     required this.onSelectedItem,
@@ -17,22 +20,53 @@ class MenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+
     return Scaffold(
       backgroundColor:Colors.blueGrey[300],
       body: SafeArea(
         child: Column(
           children: [
             DrawerHeader(
-                child:Center(
-                  child: CircleAvatar(
-                    backgroundImage: AssetImage('web/assets/images/user.png'),
-                    maxRadius: 30,
+                child:Align(
+                  alignment: Alignment.topLeft,
+                  child:Column(
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 10,),
+                      CircleAvatar(
+                        backgroundImage: AssetImage('web/assets/images/user.png'),
+                        maxRadius:40,
+                      ),
+                      Spacer(),
+                      Text(
+                          'Hi , NAME',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),),
+                      Text(
+                        'Welcome back ',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                        ),),
+                    ],),),),
 
-                  ),
-                ),
-               ),
             ...MenuItems.all.map(buildMenuItem).toList(),
             Spacer(flex: 2,),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.exit_to_app ,color: Colors.white,
+                  ),
+                 SizedBox(width:5,),
+                  textButtonItem(
+                    onPressed: (){},
+                    color: Colors.white,
+                    text: 'LOGOUT',
+                    size: 25,),],),),
           ],),),);
   }
   Widget buildMenuItem(MenuItem item) => ListTileTheme(
@@ -41,8 +75,8 @@ class MenuPage extends StatelessWidget {
       selectedTileColor: Colors.blueGrey,
       selected: currentItem==item,
       minLeadingWidth:20,
-      leading:Icon(item.icon,color: Colors.white ,size: 22),
-      title:Text(item.title,style: TextStyle(color: Colors.white,fontSize: 25)),
+      leading:Icon(item.icon,color: Colors.white ,size: 20),
+      title:Text(item.title,style: TextStyle(color: Colors.white,fontSize: 23)),
       onTap:()=> onSelectedItem(item),
     ),
   );
@@ -57,13 +91,13 @@ class  MenuItem{
 }
 
 class MenuItems{
-  static const categories =  MenuItem('Categories',Icons.mediation_rounded);
+  static const categories =  MenuItem('Categories',Icons.home);
   static const courses =  MenuItem('Courses',Icons.library_books_rounded);
   static const myLearning = MenuItem('My Learning',Icons.attach_file_sharp);
   static const favorite =  MenuItem('My Favorite',Icons.shopping_cart_outlined);
   static const notifications =  MenuItem('Notifications',Icons.notifications);
   static const setting =  MenuItem('Setting',Icons.settings);
-  static const register =  MenuItem('Register',Icons.how_to_reg);
+  static const login =  MenuItem('Login',Icons.how_to_reg);
   static const aboutUs =  MenuItem('AboutUs',Icons.info_outline);
 
 
@@ -74,7 +108,7 @@ class MenuItems{
     favorite,
     notifications,
     setting,
-    register,
+    login,
     aboutUs,
   ];
 }

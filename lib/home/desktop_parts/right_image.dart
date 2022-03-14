@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../res/component.dart';
 
+// ignore: must_be_immutable
 class RightImage extends StatelessWidget {
    RightImage({Key? key}) : super(key: key);
 double height = 400;

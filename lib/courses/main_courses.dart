@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:udeme_demo/courses/main_screen/main_desktop.dart';
 import 'package:udeme_demo/my_courses/main_screen/main_desktop.dart';
 import 'package:udeme_demo/my_courses/main_screen/main_mobile.dart';
 import 'package:udeme_demo/res/responsive.dart';
+
+import 'main_screen/main_mobile.dart';
 
 class MainMyCourses extends StatefulWidget {
   MainMyCourses({Key? key}) : super(key: key);
@@ -25,6 +28,9 @@ class _MainMyCoursesState extends State<MainMyCourses> {
 
   @override
   Widget build(BuildContext context) {
-    return Responsive(mobile: MainMobileMyCourses(), tablet: MainMobileMyCourses(), desktop: MainDesktopMyCourses());
+    return Responsive(
+        mobile: MainMobileCourses(),
+        tablet: MainMobileCourses(),
+        desktop: MainDesktopMyCourses());
   }
 }

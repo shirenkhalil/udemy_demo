@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:udeme_demo/main.dart';
 
 import '../../res/component.dart';
 import '../../res/main_mobile/zoom_drawer_mobile.dart';
@@ -25,22 +28,28 @@ class _MainMobileCartState extends State<MainMobileCart> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
         backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 0,
-          leading: MenuWidget(),
-        ),
-        body: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(vertical: Height(context) * 0.008),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              titleRow(context: context, text: 'My Favorite'),
-            ],
+        title: titleRow(context: context,text: 'MY FAVORITE'),
+        elevation: 0,
+        leading:  IconButton(
+          onPressed:() => Get.toNamed(HOME),
+          icon:Icon(
+            Icons.menu,
+            color: mobColor,
+            size: 40,
           ),
+        ),
+      ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(vertical: Height(context) * 0.008),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+
+          ],
         ),
       ),
     );

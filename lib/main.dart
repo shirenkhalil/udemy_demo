@@ -6,12 +6,13 @@ import 'package:udeme_demo/cart/main_cart.dart';
 import 'package:udeme_demo/categories/main_categories.dart';
 import 'package:udeme_demo/home/main_home.dart';
 import 'package:udeme_demo/login/main_login.dart';
-import 'package:udeme_demo/my_courses/main_my_courses.dart';
+import 'package:udeme_demo/my_courses/main_courses.dart';
 import 'package:udeme_demo/my_learning/main_my_learning.dart';
 import 'package:udeme_demo/notification/main_notification.dart';
 import 'package:udeme_demo/register/main_register.dart';
 import 'package:udeme_demo/res/main_mobile/zoom_drawer_mobile.dart';
 
+import 'courses/main_courses.dart';
 import 'setting/main_about_us.dart';
 
 Future<void> main() async {

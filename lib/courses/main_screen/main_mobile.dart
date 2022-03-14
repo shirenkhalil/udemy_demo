@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import '../../res/component.dart';
 import '../../res/main_mobile/zoom_drawer_mobile.dart';
 
-class MainMobileNotification extends StatefulWidget {
-  MainMobileNotification({Key? key}) : super(key: key);
+class MainMobileCourses extends StatefulWidget {
+  MainMobileCourses({Key? key}) : super(key: key);
 
   @override
-  _MainMobileNotificationState createState() {
-    return _MainMobileNotificationState();
+  _MainMobileCoursesState createState() {
+    return _MainMobileCoursesState();
   }
 }
 
-class _MainMobileNotificationState extends State<MainMobileNotification> {
+class _MainMobileCoursesState extends State<MainMobileCourses> {
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class _MainMobileNotificationState extends State<MainMobileNotification> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        title: titleRow(context: context,text: 'Notification'),
+        title: titleRow(context: context,text: 'Courses'),
         leading:MenuWidget(),
       ),
       body: SingleChildScrollView(

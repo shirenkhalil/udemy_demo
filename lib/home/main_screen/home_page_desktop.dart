@@ -1,5 +1,6 @@
 
 
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:udeme_demo/home/desktop_parts/course_item.dart';
 import 'package:udeme_demo/home/desktop_parts/right_image.dart';
@@ -8,9 +9,16 @@ import 'package:udeme_demo/res/component.dart';
 import '../desktop_parts/appbar.dart';
 import '../desktop_parts/register.dart';
 
-class MainDesktopHome extends StatelessWidget {
+class MainDesktopHome extends StatefulWidget {
   const MainDesktopHome({Key? key}) : super(key: key);
 
+  @override
+  State<MainDesktopHome> createState() => _MainDesktopHomeState();
+}
+
+class _MainDesktopHomeState extends State<MainDesktopHome> {
+   int actionIndex=0;
+   final controller = CarouselController();
 
   @override
   Widget build(BuildContext context) {
@@ -69,16 +77,36 @@ class MainDesktopHome extends StatelessWidget {
                               ),
                             ),
                             iconButton(
-                              onPressed: (){},
+                              onPressed: next,
                               icon: Icons.arrow_back_ios_sharp,
                             ),
                           ],
                         ),
-                        CourseItem(),
-                        SizeBoxWidth(context),
-                        CourseItem(),
-                        SizeBoxWidth(context),
-                        CourseItem(),
+                        CarouselSlider.builder(
+                          carouselController: controller,
+                          itemCount: 15,
+                          itemBuilder: (context,index,realIndex) =>Container(
+                              height: 400,
+                              width: 250,
+                              child:buildItem ( index),
+                          ),
+                          options: CarouselOptions(
+                            height: 250,
+                            initialPage: 0,
+                            enlargeCenterPage: true,
+                            enlargeStrategy: CenterPageEnlargeStrategy.height,
+                            autoPlayInterval:Duration(seconds: 3),
+                            autoPlayAnimationDuration: Duration(seconds: 1),
+                            onPageChanged: (index,reason)=>setState(()=>actionIndex =index),
+                            autoPlayCurve: Curves.fastOutSlowIn,
+                            scrollDirection: Axis.horizontal,
+                          ),
+                        ),
+                        // CourseItem(),
+                        // SizeBoxWidth(context),
+                        // CourseItem(),
+                        // SizeBoxWidth(context),
+                        // CourseItem(),
                         Stack(
                           alignment: Alignment.center,
                           children: [
@@ -91,7 +119,7 @@ class MainDesktopHome extends StatelessWidget {
                               ),
                             ),
                             iconButton(
-                              onPressed: (){},
+                              onPressed: previous,
                               icon: Icons.arrow_forward_ios,
                             ),
                           ],
@@ -107,5 +135,19 @@ class MainDesktopHome extends StatelessWidget {
       ),
     );
   }
+  void next()=> controller.nextPage(duration: Duration(milliseconds: 500));
+  void previous() => controller.previousPage(duration: Duration(milliseconds: 500));
+   Widget buildItem (int index)=>Container(
+     padding: EdgeInsets.symmetric(vertical: 5,horizontal:5),
+     margin: EdgeInsets.symmetric(horizontal:7),
+     decoration: BoxDecoration(
+         color: Colors.white,
+         borderRadius: BorderRadius.circular(10),
+         boxShadow: [BoxShadow(color: Colors.blue[900]!, spreadRadius: 2),]
+
+     ),
+
+     child:CourseItem(),
+   );
 }
 

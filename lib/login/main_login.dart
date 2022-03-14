@@ -25,6 +25,9 @@ class _MainLoginState extends State<MainLogin> {
 
   @override
   Widget build(BuildContext context) {
-    return Responsive(mobile: MainMobileLogin(), tablet: MainMobileLogin(), desktop: MainDesktopLogin());
+    return Responsive(
+        mobile: MainMobileLogin(),
+        tablet: MainMobileLogin(),
+        desktop: MainDesktopLogin());
   }
 }

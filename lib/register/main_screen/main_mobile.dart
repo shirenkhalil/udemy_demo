@@ -3,31 +3,38 @@ import 'package:get/get.dart';
 import 'package:udeme_demo/main.dart';
 
 import '../../res/component.dart';
-import '../../res/main_mobile/zoom_drawer_mobile.dart';
 
 class MainMobileRegister extends StatefulWidget {
   MainMobileRegister({Key? key}) : super(key: key);
+
 
   @override
   _MainMobileRegisterState createState() {
     return _MainMobileRegisterState();
   }
+
+  static  get(BuildContext context) {}
 }
 
 class _MainMobileRegisterState extends State<MainMobileRegister> {
+
   var emailControl = TextEditingController();
   var nameControl = TextEditingController();
-  var passwordControl = TextEditingController();
+  var passwordControlF = TextEditingController();
+  var passwordControlS = TextEditingController();
+  var formKey =GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
+
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
-          // MenuWidget(),
+          title:  titleRow(context: context,text: 'Register Now'),
           leading: IconButton(
             onPressed:() => Get.toNamed(HOME),
             icon:Icon(
@@ -38,44 +45,84 @@ class _MainMobileRegisterState extends State<MainMobileRegister> {
           ),
         ),
         body: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(vertical: Height(context)*0.008),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              titleRow(context: context,text: 'Register Now'),
-              textFormFieldItem(
-                controller: nameControl,
-                prefixIcon: Icons.person_add,
+          padding: EdgeInsets.symmetric(vertical: Height(context)*0.09,horizontal: Width(context)*0.03),
+          child: Form (
+            key: formKey,
+            child: Column(
+             crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                textFormFieldItem(
+                  validate: (value){
+                    if(value==null ||value.isEmpty){
+                      return'please enter your name';
+                    }return null;
+                  },
+                  controller: nameControl,
+                  prefixIcon: Icons.person_add,
 
-                iconColor: mobColor,
-                keyboardTextInputType: TextInputType.emailAddress,
-                labelText: 'Enter your Name',
-              ),
-              textFormFieldItem(
-                controller: emailControl,
-                prefixIcon: Icons.email_outlined,
-                iconColor: mobColor,
-                keyboardTextInputType: TextInputType.emailAddress,
-                labelText: 'Enter your Email',
-              ),
-              textFormFieldItem(
-                controller: passwordControl,
-                prefixIcon: Icons.lock,
-                iconColor: mobColor,
-                keyboardTextInputType: TextInputType.emailAddress,
-                labelText: 'Enter your Password',
-              ),
-              textFormFieldItem(
-                controller: passwordControl,
-                prefixIcon: Icons.lock,
-                iconColor: mobColor,
-                keyboardTextInputType: TextInputType.emailAddress,
-                labelText: 'Re-Enter your Password',
-              ),
-            ],
+                  iconColor: mobColor,
+                  keyboardTextInputType: TextInputType.emailAddress,
+                  labelText: 'Enter your Name',
+                ),
+                SizedBox(height: 20,),
+                textFormFieldItem(
+                  validate: (value){
+                    if(value==null ||value.isEmpty){
+                      return 'please enter your email';}
+                    return null;
+                    },
+                  controller: emailControl,
+                  prefixIcon: Icons.email_outlined,
+                  iconColor: mobColor,
+                  keyboardTextInputType: TextInputType.emailAddress,
+                  labelText: 'Enter your Email',
+                ),
+                SizedBox(height: 20,),
+                textFormFieldItem(
+                  validate: (value){if(value==null || value.isEmpty)
+                  {return 'your password is too short';}
+                    return null;
+                  },
+                  controller: passwordControlF,
+                  prefixIcon: Icons.lock,
+                  iconColor: mobColor,
+                  keyboardTextInputType: TextInputType.visiblePassword,
+                  labelText: 'Enter your Password',
+                ),
+                SizedBox(height: 20,),
+                textFormFieldItem(
+                  validate: (value){
+                    if(value==null ||value.isEmpty){
+                      return 'your password is too short';}
+                    if(value!=passwordControlF.text){return'your password is not right';}
+                    return null;
+                  },
+                  controller: passwordControlS,
+                  prefixIcon: Icons.lock,
+                  iconColor: mobColor,
+                  keyboardTextInputType: TextInputType.visiblePassword,
+                  labelText: 'Re-Enter your Password',
+                  onSubmit: (value){},
+                ),
+                SizedBox(height: 20,),
+                ButtonItem(
+                  onPressed: () {
+                    if(formKey.currentState!.validate()){
+                      print(emailControl.text);
+                      print(nameControl.text);
+                      print (passwordControlF.text);
+                    }
+                  },
+                  text: 'register now',
+                  backgroundColor: mobColor,
+                  width: double.infinity,
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 }
+

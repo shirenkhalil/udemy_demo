@@ -16,22 +16,20 @@ class _MainMobileMyLearningState extends State<MainMobileMyLearning> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: titleRow(context: context,text: 'My Learning'),
         backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 0,
-          leading:MenuWidget(),
-        ),
-        body: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(vertical: Height(context)*0.008),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              titleRow(context: context,text: 'My Learning'),
-            ],
-          ),
+        elevation: 0,
+        leading:MenuWidget(),
+      ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(vertical: Height(context)*0.008),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+          ],
         ),
       ),
     );
