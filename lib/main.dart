@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:udeme_demo/about_us/main_about_us.dart';
-import 'package:udeme_demo/cart/main_cart.dart';
-import 'package:udeme_demo/categories/main_categories.dart';
-import 'package:udeme_demo/home/main_home.dart';
-import 'package:udeme_demo/login/main_login.dart';
-import 'package:udeme_demo/my_courses/main_courses.dart';
-import 'package:udeme_demo/my_learning/main_my_learning.dart';
-import 'package:udeme_demo/notification/main_notification.dart';
-import 'package:udeme_demo/register/main_register.dart';
-import 'package:udeme_demo/res/main_mobile/zoom_drawer_mobile.dart';
-
-import 'courses/main_courses.dart';
-import 'setting/main_about_us.dart';
+import 'package:udeme_demo/injection.dart';
+import 'package:udeme_demo/udimy/presentation/pages/about_us/main_about_us.dart';
+import 'package:udeme_demo/udimy/presentation/pages/cart/main_cart.dart';
+import 'package:udeme_demo/udimy/presentation/pages/categories/main_categories.dart';
+import 'package:udeme_demo/udimy/presentation/pages/courses/main_courses.dart';
+import 'package:udeme_demo/udimy/presentation/pages/home/main_home.dart';
+import 'package:udeme_demo/udimy/presentation/pages/login/main_login.dart';
+import 'package:udeme_demo/udimy/presentation/pages/my_learning/main_my_learning.dart';
+import 'package:udeme_demo/udimy/presentation/pages/notification/main_notification.dart';
+import 'package:udeme_demo/udimy/presentation/pages/register/main_register.dart';
+import 'package:udeme_demo/udimy/presentation/pages/search/main_search.dart';
+import 'package:udeme_demo/udimy/presentation/pages/setting/main_setting.dart';
+import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/zoom_drawer_mobile.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding
       .ensureInitialized(); // للتاكد من انتهاء كل waiting function
+  await init();
   runApp(const MyApp());
 }
 
@@ -59,6 +60,10 @@ class MyApp extends StatelessWidget {
             page: () => MainAboutUs(),
             transition: Transition.fadeIn),
         GetPage(
+            name: SEARCH,
+            page: () => MainSearch(),
+            transition: Transition.fadeIn),
+        GetPage(
             name: REGISTER,
             page: () => MainRegister(),
             transition: Transition.fadeIn),
@@ -83,5 +88,6 @@ const String REGISTER = '/REGISTER';
 const String MY_LEARNING = '/MY_LEARNING';
 const String CART = '/CART';
 const String ABOUT_US = '/ABOUT_US';
+const String SEARCH = '/SEARCH';
 const String MY_COURSES = '/MY_COURSES';
 const String SETTING = '/SETTING';
