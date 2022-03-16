@@ -1,6 +1,10 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:udeme_demo/main.dart';
+import 'package:udeme_demo/udimy/presentation/pages/about_us/main_screen/main_desktop.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 
 class AppBarWidget extends StatelessWidget {
@@ -12,21 +16,20 @@ class AppBarWidget extends StatelessWidget {
     return AppBar(
       backgroundColor: Colors.white,
     flexibleSpace: Row(
+      mainAxisAlignment:MainAxisAlignment.center,
       children: [
+        SizeBoxWidth(context),
+        SizeBoxWidth(context),
         Container(
-          width: 100,
+          width: 200,
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage('web/assets/images/our courses .png'),
+              fit: BoxFit.cover
             ),
           ),
         ),
         SizeBoxWidth(context),
-        textButtonItem(
-          text: 'Categories',
-          color: color,
-          onPressed: (){},
-        ),
         SizeBoxWidth(context),
         Expanded(
           child: textFormFieldItem(
@@ -43,27 +46,29 @@ class AppBarWidget extends StatelessWidget {
         textButtonItem(
           text: 'AboutUs',
           color: color,
-          onPressed: (){},
+          onPressed: (){
+            Get.toNamed(ABOUT_US);
+          },
         ),
         SizeBoxWidth(context),
         textButtonItem(
           text: 'Courses',
           color: color,
-          onPressed: (){},
+          onPressed: (){Get.toNamed(MY_COURSES);},
         ),
         SizeBoxWidth(context),
         textButtonItem(
           text: 'My learning',
           color: color,
-          onPressed: (){},
+          onPressed: (){Get.toNamed(MY_LEARNING);},
         ),
         SizeBoxWidth(context),
         iconButtonItems(
-          function: (){},
+          function: (){Get.toNamed(CART);},
           icon: Icons.shopping_cart_outlined,
         ),
         iconButtonItems(
-            function: (){},
+            function: (){Get.toNamed(NOTIFICATION);},
             icon: Icons.notifications_none_outlined
         ),
         InkWell(
@@ -73,6 +78,8 @@ class AppBarWidget extends StatelessWidget {
             radius:20,
           ),
         ),
+        SizeBoxWidth(context),
+        SizeBoxWidth(context),
       ],
     ),
     );

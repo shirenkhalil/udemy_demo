@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
+import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/zoom_drawer_mobile.dart';
 
 class MainDesktopNotification extends StatefulWidget {
   MainDesktopNotification({Key? key}) : super(key: key);
@@ -22,6 +24,23 @@ class _MainDesktopNotificationState extends State<MainDesktopNotification> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        title: titleRow(context: context,text: 'Notification'),
+        // leading:MenuWidget(),
+      ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(vertical: Height(context)*0.008),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+
+          ],
+        ),
+      ),
+    );
   }
 }

@@ -5,6 +5,7 @@ import 'package:udeme_demo/injection.dart';
 import 'package:udeme_demo/udimy/presentation/pages/about_us/main_about_us.dart';
 import 'package:udeme_demo/udimy/presentation/pages/cart/main_cart.dart';
 import 'package:udeme_demo/udimy/presentation/pages/categories/main_categories.dart';
+import 'package:udeme_demo/udimy/presentation/pages/categories/main_screen/main_desktop.dart';
 import 'package:udeme_demo/udimy/presentation/pages/courses/main_courses.dart';
 import 'package:udeme_demo/udimy/presentation/pages/home/main_home.dart';
 import 'package:udeme_demo/udimy/presentation/pages/login/main_login.dart';
@@ -36,13 +37,16 @@ class MyApp extends StatelessWidget {
       home: DrawerMobile(),
       getPages: [
         GetPage(
-            name: HOME, page: () => MainHome(), transition: Transition.fadeIn),
+            name: HOME,
+            page: () => MainCategories(),
+            transition: Transition.fadeIn),
         GetPage(
             name: CATEGORIES,
             page: () => MainCategories(),
             transition: Transition.fadeIn),
         GetPage(
-            name: CART, page: () => MainCart(), transition: Transition.fadeIn),
+            name: CART, page: () => MainCart(),
+            transition: Transition.fadeIn),
         GetPage(
             name: NOTIFICATION,
             page: () => MainNotification(),
@@ -78,7 +82,9 @@ class MyApp extends StatelessWidget {
       ],
     );
   }
+
 }
+
 
 const String HOME = '/HOME';
 const String CATEGORIES = '/CATEGORIES';

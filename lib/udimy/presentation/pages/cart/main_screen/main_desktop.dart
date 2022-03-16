@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:udeme_demo/main.dart';
+import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 
 class MainDesktopCart extends StatefulWidget {
   MainDesktopCart({Key? key}) : super(key: key);
@@ -22,6 +26,30 @@ class _MainDesktopCartState extends State<MainDesktopCart> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: titleRow(context: context,text: 'MY FAVORITE'),
+        elevation: 0,
+        // leading:  IconButton(
+        //   onPressed:() => Get.toNamed(HOME),
+        //   icon:Icon(
+        //     Icons.menu,
+        //     color: mobColor,
+        //     size: 40,
+        //   ),
+        // ),
+      ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(vertical: Height(context) * 0.008),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+
+          ],
+        ),
+      ),
+    );
   }
 }

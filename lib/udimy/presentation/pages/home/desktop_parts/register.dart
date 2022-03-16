@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:udeme_demo/main.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 
 // ignore: must_be_immutable
@@ -41,7 +42,9 @@ double width = 400;
           SizedBox(height: Height(context)*0.04,),
           ButtonItem(
             text: 'register',
-            onPressed: () {},
+            onPressed: () {
+              Get.toNamed(REGISTER);
+            },
           ),
         ],
       ),

@@ -54,7 +54,7 @@ class MenuPage extends StatelessWidget {
             ...MenuItems.all.map(buildMenuItem).toList(),
             Spacer(flex: 2,),
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(10.0),
               child: Row(
                 children: [
                   Icon(
@@ -73,9 +73,9 @@ class MenuPage extends StatelessWidget {
     child: ListTile(
       selectedTileColor: Colors.blueGrey,
       selected: currentItem==item,
-      minLeadingWidth:20,
-      leading:Icon(item.icon,color: Colors.white ,size: 20),
-      title:Text(item.title,style: TextStyle(color: Colors.white,fontSize: 23)),
+      minLeadingWidth:10,
+      leading:Icon(item.icon,color: Colors.white ,size: 18),
+      title:Text(item.title,style: TextStyle(color: Colors.white,fontSize: 20)),
       onTap:()=> onSelectedItem(item),
     ),
   );

@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'package:udeme_demo/main.dart';
 import 'package:udeme_demo/udimy/presentation/pages/home/desktop_parts/course_item.dart';
+import 'package:udeme_demo/udimy/presentation/pages/home/desktop_parts/right_image.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/zoom_drawer_mobile.dart';
 
@@ -41,7 +41,7 @@ int actionIndex =0;
             ),
 
             iconButton(
-              onPressed: (){Get.toNamed(ABOUT_US);},
+              onPressed: (){Get.toNamed(SEARCH);},
               icon: Icons.search,
               color: Colors.black,
             ),
@@ -55,48 +55,18 @@ int actionIndex =0;
 
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  padding: EdgeInsets.all(10),
-                  height:270,
-                  width: 250,
-                  child: Stack(
-                  alignment: Alignment.bottomRight,
-                  children: [
-                    CircleAvatar(
-                      backgroundColor: Colors.yellow[300],
-                      radius:100,
-                    ),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: CircleAvatar(
-                        backgroundColor:Colors.green[200],
-                        radius:60,
-                      ),
-                    ),
-                    Image(
-                      image: AssetImage('web/assets/images/Student-PNG-Clipart.png'),
-                      height:300,
-                      width: 300,
-                    ),
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.amber[200],
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        transform:Matrix4.rotationZ(0.08),
-                        width: 350,
-                        height: 30,
-                      ),
-                    ),
-                  ],
-                ),),
+                MobRightImage(),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: 10,),
-                    Text('Great savings for           a bright future',
+                    Text('Great savings for',
+                      style: GoogleFonts.robotoSlab(
+                        fontSize:35,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                    Text('a bright future',
                       style: GoogleFonts.robotoSlab(
                         fontSize:35,
                         fontWeight: FontWeight.w900,
@@ -122,14 +92,17 @@ int actionIndex =0;
                         itemCount: 15,
                         itemBuilder: (context,index,realIndex) =>buildItem(index),
                         options: CarouselOptions(
-                          height: 280,
+                          height:320,
                           pageSnapping: false,
+                          viewportFraction: 0.6,
                           initialPage: 0,
-                          enableInfiniteScroll: false,
+                          enableInfiniteScroll: true,
                           enlargeCenterPage: true,
                           reverse: true,
                           autoPlayInterval:Duration(seconds: 4),
                           onPageChanged: (index,reason)=>setState(()=>actionIndex =index),
+                          autoPlayCurve: Curves.fastOutSlowIn,
+                          // scrollDirection: Axis.horizontal,
                         ),
                       ),
                     ),
@@ -181,18 +154,7 @@ int actionIndex =0;
     );
 
   }
-  Widget buildItem (int index)=>Container(
-    padding: EdgeInsets.symmetric(vertical: 5,horizontal:5),
-    margin: EdgeInsets.symmetric(horizontal:7),
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(10),
-      boxShadow: [BoxShadow(color: Colors.blue[900]!, blurRadius: 5),]
-
-    ),
-
-    child: MobCourseItem(),
-  );
+  Widget buildItem (int index)=>  Center(child: MobCourseItem());
 }
 
 

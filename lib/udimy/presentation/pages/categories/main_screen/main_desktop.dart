@@ -48,13 +48,13 @@ class _MainDesktopCategoriesState extends State<MainDesktopCategories> {
               ),
               SizeBoxHeight(context),
               Container(
+                alignment: Alignment.center,
                 width:  Width(context),
-                height:Height(context)* 0.9,
+                height:Height(context)* 0.7,
                 color: green1,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    SizedBox(height:20,),
                     Text(
                       'Browser our Top courses',
                       style: TextStyle(
@@ -64,7 +64,6 @@ class _MainDesktopCategoriesState extends State<MainDesktopCategories> {
                       ),
                       maxLines: 2,
                     ),
-                    SizedBox(height: 40,),
                     Expanded(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -82,27 +81,26 @@ class _MainDesktopCategoriesState extends State<MainDesktopCategories> {
                               icon: Icons.arrow_back_ios_sharp,
                             ) ,
                           ),
-                          SizedBox(
-                            height: 450,
-                            width: 350,
+                          Container(
+                            height:800,
+                            width: Width(context)*0.9,
                             child: CarouselSlider.builder(
                               carouselController: controller,
-                              itemCount: 15,
-                              itemBuilder: (context,index,realIndex) =>Container(
-                                height: 400,
-                                width: 250,
-                                child:buildItem ( index),
-                              ),
+                              itemCount: 20,
+                              itemBuilder: (context,index,realIndex) =>buildItem ( index),
                               options: CarouselOptions(
-                                height: 400,
+                                height:800,
                                 initialPage: 0,
                                 enlargeCenterPage: true,
                                 enlargeStrategy: CenterPageEnlargeStrategy.height,
-                                autoPlayInterval:Duration(seconds: 3),
+                                autoPlayInterval:Duration(seconds: 4),
                                 autoPlayAnimationDuration: Duration(seconds: 1),
                                 onPageChanged: (index,reason)=>setState(()=>actionIndex =index),
-                                autoPlayCurve: Curves.fastOutSlowIn,
-                                scrollDirection: Axis.horizontal,
+                                pageSnapping: false,
+                                viewportFraction: 0.20,
+                                enableInfiniteScroll: true,
+                                reverse: true,
+                                autoPlayCurve: Curves.fastLinearToSlowEaseIn,
                               ),
                             ),
                           ),
@@ -124,6 +122,7 @@ class _MainDesktopCategoriesState extends State<MainDesktopCategories> {
                   ],
                 ),
               ),
+              SizedBox(height: 150,),
             ],
           ),
         ),
@@ -132,17 +131,6 @@ class _MainDesktopCategoriesState extends State<MainDesktopCategories> {
   }
   void next()=> controller.nextPage(duration: Duration(milliseconds: 500));
   void previous() => controller.previousPage(duration: Duration(milliseconds: 500));
-  Widget buildItem (int index)=>Container(
-    padding: EdgeInsets.symmetric(vertical: 5,horizontal:5),
-    margin: EdgeInsets.symmetric(horizontal:7),
-    decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [BoxShadow(color: Colors.blue[900]!, spreadRadius: 2),]
-
-    ),
-
-    child:CourseItem(),
-  );
+  Widget buildItem (int index)=>Center(child: WebCourseItem());
 }
 
