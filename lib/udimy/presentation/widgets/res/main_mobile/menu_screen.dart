@@ -99,6 +99,7 @@ class MenuItems{
   static const login =  MenuItem('Login',Icons.how_to_reg);
   static const aboutUs =  MenuItem('AboutUs',Icons.info_outline);
   static const search = MenuItem('search', Icons.search);
+  static const register = MenuItem('register', Icons.add);
 
 
   static const all =<MenuItem>[

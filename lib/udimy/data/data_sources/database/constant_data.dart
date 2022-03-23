@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 
-const staticColor = Colors.blueAccent;
 
-void unfocus(BuildContext context) {
-  FocusScope.of(context).unfocus();
-}
+const String url = 'https://udemy2server.herokuapp.com/rest';
+
+
+
+
 

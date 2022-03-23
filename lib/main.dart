@@ -1,29 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:udeme_demo/control/dio-helper.dart';
-import 'package:udeme_demo/control/shared_prefrence.dart';
 import 'package:udeme_demo/injection.dart';
 import 'package:udeme_demo/udimy/presentation/pages/about_us/main_about_us.dart';
 import 'package:udeme_demo/udimy/presentation/pages/cart/main_cart.dart';
 import 'package:udeme_demo/udimy/presentation/pages/categories/main_categories.dart';
 import 'package:udeme_demo/udimy/presentation/pages/categories/main_screen/main_desktop.dart';
 import 'package:udeme_demo/udimy/presentation/pages/courses/main_courses.dart';
-import 'package:udeme_demo/udimy/presentation/pages/home/main_home.dart';
 import 'package:udeme_demo/udimy/presentation/pages/login/main_login.dart';
 import 'package:udeme_demo/udimy/presentation/pages/my_learning/main_my_learning.dart';
 import 'package:udeme_demo/udimy/presentation/pages/notification/main_notification.dart';
 import 'package:udeme_demo/udimy/presentation/pages/register/main_register.dart';
 import 'package:udeme_demo/udimy/presentation/pages/search/main_search.dart';
 import 'package:udeme_demo/udimy/presentation/pages/setting/main_setting.dart';
+import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/menu_screen.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/zoom_drawer_mobile.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding
-      .ensureInitialized(); // للتاكد من انتهاء كل waiting function
+  WidgetsFlutterBinding.ensureInitialized(); // للتاكد من انتهاء كل waiting function
   await init();
-  DioHelper.init();
-  await CacheHelper.init();
   runApp(const MyApp());
 }
 
@@ -42,46 +37,46 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(
             name: HOME,
-            page: () => MainCategories(),
+            page: () => DrawerMobile(menuItem: MenuItems.categories,),
             transition: Transition.fadeIn),
         GetPage(
             name: CATEGORIES,
-            page: () => MainCategories(),
+            page: () => DrawerMobile(menuItem: MenuItems.categories,),
             transition: Transition.fadeIn),
         GetPage(
-            name: CART, page: () => MainCart(),
+            name: CART, page: () => DrawerMobile(menuItem: MenuItems.favorite,),
             transition: Transition.fadeIn),
         GetPage(
             name: NOTIFICATION,
-            page: () => MainNotification(),
+            page: () => DrawerMobile(menuItem: MenuItems.notifications,),
             transition: Transition.fadeIn),
         GetPage(
             name: LOGIN,
-            page: () => MainLogin(),
+            page: () => DrawerMobile(menuItem: MenuItems.login,),
             transition: Transition.fadeIn),
         GetPage(
             name: MY_LEARNING,
-            page: () => MainMyLearning(),
+            page: () => DrawerMobile(menuItem: MenuItems.myLearning,),
             transition: Transition.fadeIn),
         GetPage(
             name: ABOUT_US,
-            page: () => MainAboutUs(),
+            page: () => DrawerMobile(menuItem: MenuItems.aboutUs,),
             transition: Transition.fadeIn),
         GetPage(
             name: SEARCH,
-            page: () => MainSearch(),
+            page: () => DrawerMobile(menuItem: MenuItems.search,),
             transition: Transition.fadeIn),
         GetPage(
             name: REGISTER,
-            page: () => MainRegister(),
+            page: () => DrawerMobile(menuItem: MenuItems.register,),
             transition: Transition.fadeIn),
         GetPage(
             name: MY_COURSES,
-            page: () => MainMyCourses(),
+            page: () => DrawerMobile(menuItem: MenuItems.courses,),
             transition: Transition.fadeIn),
         GetPage(
             name: SETTING,
-            page: () => MainSetting(),
+            page: () => DrawerMobile(menuItem: MenuItems.setting,),
             transition: Transition.fadeIn),
       ],
     );

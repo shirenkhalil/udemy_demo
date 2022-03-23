@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:udeme_demo/main.dart';
+import 'package:udeme_demo/udimy/domain/model/login/login_post.dart';
+import 'package:udeme_demo/udimy/presentation/pages/login/methods/login_methods.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/zoom_drawer_mobile.dart';
 
@@ -19,6 +21,7 @@ class _MainMobileLoginState extends State<MainMobileLogin> {
   var passwordControl = TextEditingController();
   final formKey = GlobalKey<FormState>();
   bool  isPassword =true;
+  LoginPostModel loginPostModel = LoginPostModel();
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +55,9 @@ class _MainMobileLoginState extends State<MainMobileLogin> {
                     {return 'Please enter your email address';}
                     return null;
                   },
+                  onChange: (value){
+                    loginPostModel.email = value;
+                  },
                   controller: emailControl,
                   prefixIcon: Icons.email_outlined,
                   iconColor: mobColor,
@@ -66,7 +72,12 @@ class _MainMobileLoginState extends State<MainMobileLogin> {
                     return null;
                   },
                   controller: passwordControl,
-                  onSubmit: (value){},
+                  onChange: (value){
+                    loginPostModel.password = value;
+                  },
+                  onSubmit: (value){
+                    loginPostModel.password = value;
+                  },
                   isPassword: isPassword,
                   keyboardTextInputType: TextInputType.number,
                   labelText: 'Enter your Password',
@@ -83,6 +94,7 @@ class _MainMobileLoginState extends State<MainMobileLogin> {
                     if(formKey.currentState!.validate()){
                       print(emailControl.text);
                       print (passwordControl.text);
+                      login(loginPostModel, context);
                     }
                   },
                   text: 'login',

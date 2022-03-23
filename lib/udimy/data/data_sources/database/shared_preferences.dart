@@ -2,34 +2,31 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:get_storage/get_storage.dart';
-
-
-
+import 'package:udeme_demo/udimy/domain/model/login/login_get.dart';
 
 const String SHAREDPREFERENCE_USER = "user";
 
-
 class GetSharedPreference {
-  GetStorage sharedPreferences ;
+  GetStorage sharedPreferences;
 
   GetSharedPreference({required this.sharedPreferences});
 
-/*  Future<void> setLoginData(
-      EmployeeData loginDataEntities) async {
-    print("insert data: " + jsonEncode(loginDataEntities?.toJson()??null));
-    sharedPreferences.write(SHAREDPREFERENCE_USER,loginDataEntities?.toJson()??null);
+  Future<void> setLoginData(LoginGetModel loginGetModel) async {
+    print("insert data: " + jsonEncode(loginGetModel?.toJson() ?? null));
+    sharedPreferences.write(
+        SHAREDPREFERENCE_USER, loginGetModel?.toJson() ?? null);
   }
 
-  EmployeeData getLoginData() {
-    if(sharedPreferences?.read(SHAREDPREFERENCE_USER)!= null){
+  dynamic getLoginData() {
+    if (sharedPreferences.read(SHAREDPREFERENCE_USER) != null) {
       print(" get data :" +
-          EmployeeData.fromJson(
-              sharedPreferences?.read(SHAREDPREFERENCE_USER))
+          LoginGetModel.fromJson(sharedPreferences.read(SHAREDPREFERENCE_USER))
               .toJson()
               .toString());
-      return EmployeeData.fromJson(
-          sharedPreferences?.read(SHAREDPREFERENCE_USER));}else{
+      return LoginGetModel.fromJson(
+          sharedPreferences.read(SHAREDPREFERENCE_USER));
+    } else {
       return null;
     }
-  }*/
+  }
 }

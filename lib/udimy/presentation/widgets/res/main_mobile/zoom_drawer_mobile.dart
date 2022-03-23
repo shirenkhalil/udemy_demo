@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:udeme_demo/udimy/presentation/pages/register/main_register.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 import 'package:udeme_demo/udimy/presentation/pages/about_us/main_about_us.dart';
 import 'package:udeme_demo/udimy/presentation/pages/cart/main_cart.dart';
@@ -19,11 +20,12 @@ final drawerController = ZoomDrawerController();
 class DrawerMobile extends StatefulWidget {
   @override
   State<DrawerMobile> createState() => _HomePageState();
-  DrawerMobile({Key? key}) : super(key: key);
+  DrawerMobile({Key? key,this.menuItem = MenuItems.categories}) : super(key: key);
+  MenuItem menuItem ;
 }
 
 class _HomePageState extends State<DrawerMobile> {
-  MenuItem currentItem = MenuItems.categories;
+
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +35,10 @@ class _HomePageState extends State<DrawerMobile> {
       mainScreen: getScreen(),
       menuScreen: Builder(
         builder: (context) => MenuPage(
-            currentItem: currentItem,
+            currentItem: widget.menuItem,
             onSelectedItem: (item) {
               print('get item :: ${item.title}');
-              setState(() => currentItem = item);
+              setState(() => widget.menuItem = item);
 
               ZoomDrawer.of(context)!.close();
             }),
@@ -53,7 +55,7 @@ class _HomePageState extends State<DrawerMobile> {
   }
 
   Widget getScreen() {
-    switch (currentItem) {
+    switch (widget.menuItem) {
       case MenuItems.categories:
         return MainCategories();
       case MenuItems.courses:
@@ -72,6 +74,8 @@ class _HomePageState extends State<DrawerMobile> {
         return MainSearch();
       case MenuItems.aboutUs:
         return MainAboutUs();
+      case MenuItems.register:
+        return MainRegister();
       default:
         return MainCategories();
     }

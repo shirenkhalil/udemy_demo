@@ -3,12 +3,14 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:udeme_demo/main.dart';
+import 'package:udeme_demo/udimy/presentation/pages/categories/desktop_parts/course_item.dart';
+import 'package:udeme_demo/udimy/presentation/pages/categories/desktop_parts/right_image.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 
-import '../../home/desktop_parts/appbar.dart';
-import '../../home/desktop_parts/course_item.dart';
-import '../../home/desktop_parts/register.dart';
-import '../../home/desktop_parts/right_image.dart';
+import '../desktop_parts/appbar.dart';
+
+import '../desktop_parts/register.dart';
+
 
 
 class MainDesktopCategories extends StatefulWidget {

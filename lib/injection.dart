@@ -15,6 +15,8 @@ import 'package:udeme_demo/udimy/domain/use_cases/case.dart';
 
 final sl = GetIt.instance;
 
+//injection
+
 Future<void> init()async{
   //! feature
   // for bloc
@@ -33,6 +35,7 @@ Future<void> init()async{
   // * database from local data source
   //sl.registerLazySingleton(() => DBHelper());
   await GetStorage.init();
+  //sharedpreference package  ==> getstorage pacakge
   final sharedPreferences = GetStorage();
   sl.registerLazySingleton<GetStorage>(() => sharedPreferences);
 }

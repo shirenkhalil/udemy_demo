@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:udeme_demo/udimy/presentation/pages/home/desktop_parts/course_item.dart';
+import 'package:udeme_demo/udimy/presentation/pages/categories/desktop_parts/course_item.dart';
+
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/zoom_drawer_mobile.dart';
 

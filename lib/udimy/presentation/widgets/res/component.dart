@@ -12,6 +12,10 @@ double Width(context) => MediaQuery.of(context).size.width;
 
 double Height(context) => MediaQuery.of(context).size.height;
 
+void unfocus(BuildContext context) {
+  FocusScope.of(context).unfocus();
+}
+
 Widget textButtonItem({
   final void Function()? onPressed,
   String? text,

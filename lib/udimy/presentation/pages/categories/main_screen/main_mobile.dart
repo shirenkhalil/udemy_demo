@@ -7,8 +7,9 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:udeme_demo/main.dart';
-import 'package:udeme_demo/udimy/presentation/pages/home/desktop_parts/course_item.dart';
-import 'package:udeme_demo/udimy/presentation/pages/home/desktop_parts/right_image.dart';
+import 'package:udeme_demo/udimy/presentation/pages/categories/desktop_parts/course_item.dart';
+import 'package:udeme_demo/udimy/presentation/pages/categories/desktop_parts/right_image.dart';
+
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/zoom_drawer_mobile.dart';
 
