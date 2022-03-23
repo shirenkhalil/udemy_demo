@@ -50,6 +50,13 @@ class _MainDesktopSearchState extends State<MainDesktopSearch> {
                 horizontal:Height(context) * 0.01 ),
             child: Column(
               children: [
+                textFormFieldItem(
+                  controller: textController,
+                  onTap: () {},
+                  prefixIcon: Icons.search_sharp,
+                  hintText: 'Search for anything',
+                  bordRadius: 30,
+                ),
 
 
               ],

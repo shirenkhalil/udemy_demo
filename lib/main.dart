@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:udeme_demo/control/dio-helper.dart';
+import 'package:udeme_demo/control/shared_prefrence.dart';
 import 'package:udeme_demo/injection.dart';
 import 'package:udeme_demo/udimy/presentation/pages/about_us/main_about_us.dart';
 import 'package:udeme_demo/udimy/presentation/pages/cart/main_cart.dart';
@@ -20,6 +22,8 @@ Future<void> main() async {
   WidgetsFlutterBinding
       .ensureInitialized(); // للتاكد من انتهاء كل waiting function
   await init();
+  DioHelper.init();
+  await CacheHelper.init();
   runApp(const MyApp());
 }
 
