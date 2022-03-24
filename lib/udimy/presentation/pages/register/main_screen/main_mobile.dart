@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:udeme_demo/main.dart';
+import 'package:udeme_demo/udimy/domain/model/login/register_post.dart';
+import 'package:udeme_demo/udimy/presentation/pages/register/methods/register.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 
 
@@ -23,6 +25,7 @@ class _MainMobileRegisterState extends State<MainMobileRegister> {
   var passwordControlF = TextEditingController();
   var passwordControlS = TextEditingController();
   var formKey =GlobalKey<FormState>();
+  RegisterPostModel registerPostModel = RegisterPostModel();
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +60,9 @@ class _MainMobileRegisterState extends State<MainMobileRegister> {
                       return'please enter your name';
                     }return null;
                   },
+                  onChange: (value){
+                    registerPostModel.name = value;
+                  },
                   controller: nameControl,
                   prefixIcon: Icons.person_add,
 
@@ -71,6 +77,9 @@ class _MainMobileRegisterState extends State<MainMobileRegister> {
                       return 'please enter your email';}
                     return null;
                     },
+                  onChange: (value){
+                    registerPostModel.email = value;
+                  },
                   controller: emailControl,
                   prefixIcon: Icons.email_outlined,
                   iconColor: mobColor,
@@ -82,6 +91,9 @@ class _MainMobileRegisterState extends State<MainMobileRegister> {
                   validate: (value){if(value==null || value.isEmpty)
                   {return 'your password is too short';}
                     return null;
+                  },
+                  onChange: (value){
+                    registerPostModel.password = value;
                   },
                   controller: passwordControlF,
                   prefixIcon: Icons.lock,
@@ -111,6 +123,7 @@ class _MainMobileRegisterState extends State<MainMobileRegister> {
                       print(emailControl.text);
                       print(nameControl.text);
                       print (passwordControlF.text);
+                      registerMethods(registerPostModel);
                     }
                   },
                   text: 'register now',

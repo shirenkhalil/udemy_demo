@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:udeme_demo/udimy/domain/model/login/register_post.dart';
 import 'package:udeme_demo/udimy/domain/repositories/domain_repositry.dart';
 
 import '../model/login/login_get.dart';
@@ -23,5 +24,9 @@ class Cases {
 
   dynamic getLoginData(){
    return domainRepositry.getLoginData();
+  }
+
+  Future<dynamic> register(RegisterPostModel registerPostModel){
+   return domainRepositry.register(registerPostModel);
   }
 }
