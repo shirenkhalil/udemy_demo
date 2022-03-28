@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 
 class WebCourseItem extends StatelessWidget {
   const WebCourseItem({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    int oldPrice = 1000;
+    int newPrice = 800;
+    int disPrice = 3;
+    final isFavorite = false.obs;
+    final isCart = false.obs;
+    final isLearn = false.obs;
+
+
     return SingleChildScrollView(
       child: Container(
         height: 320,
@@ -20,57 +30,49 @@ class WebCourseItem extends StatelessWidget {
               BoxShadow(color: Colors.blue[900]!, blurRadius: 5),
             ]),
         child: Column(
+          // crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Container(
-              margin: EdgeInsets.only(top: 5),
-              height: 150,
-              width: 230,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                image: DecorationImage(
-                  image: AssetImage(
-                    'web/assets/images/meeting.jpeg',
+            Expanded(
+              child: Container(
+                // height:150,
+                // width: 200,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  image: DecorationImage(
+                    image: AssetImage(
+                      'web/assets/images/meeting.jpeg',
+                    ),
+                    fit: BoxFit.fill,
                   ),
-                  fit: BoxFit.fill,
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 5,
-                bottom: 5,
-                top: 8,
-              ),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
                   'Digital Marketing',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 15,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-              ),
+              ],
             ),
-            SizedBox(
-              height: 10,
-            ),
+            SizedBox(height: 3),
             Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(
-                  width: 3,
-                ),
                 CircleAvatar(
-                  backgroundColor: Colors.red,
                   backgroundImage: AssetImage('web/assets/images/pell.jpg'),
                   radius: 20,
                 ),
                 SizedBox(
-                  width: 5,
+                  width: 3,
                 ),
                 Text(
                   'Pill Gates',
@@ -84,62 +86,85 @@ class WebCourseItem extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
-              height: 20,
-            ),
+            // SizedBox(height: 20,),
             Row(
               children: [
-                Column(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          '800',
-                          style: TextStyle(
-                            color: Colors.blue[800],
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        // if(model.discount !=0)
-                        Text(
-                          '1000',
-                          style: TextStyle(
-                            color: Colors.grey[600],
-                            fontSize: 13,
-                            decoration: TextDecoration.lineThrough,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+                    Text(
+                      '$newPrice',
+                      style: TextStyle(
+                        color: Colors.blue[800],
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Container(
-                          padding: EdgeInsets.all(3),
-                          color: Colors.green[100],
-                          child: Text(
-                            'Bestseller',
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.green[900],
-                            ),
-                          ),
-                        ),
-                      ],
+                    SizedBox(
+                      width: 5,
                     ),
+                    // if(model.discount !=0)
+                    if (disPrice != 0)
+                      Text(
+                        '$oldPrice',
+                        style: TextStyle(
+                          color: Colors.grey[600],
+                          fontSize: 13,
+                          decoration: TextDecoration.lineThrough,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                   ],
                 ),
                 Spacer(),
-                IconButton(
-                    padding: EdgeInsets.zero,
-                    onPressed: () {},
-                    icon: Icon(Icons.favorite_border_outlined)),
+                if (disPrice != 0)
+                  Container(
+                    padding: EdgeInsets.all(3),
+                    color: Colors.green[100],
+                    child: Text(
+                      'Bestseller',
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.green[900],
+                      ),
+                    ),
+                  ),
+
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Obx(() {
+                  return IconButton(
+                      icon: isFavorite.value
+                          ? Icon(Icons.favorite, color: Colors.red)
+                          : Icon(Icons.favorite_border_outlined,
+                          color: iconGreen),
+                      onPressed: () {
+                        isFavorite(!(isFavorite.value));
+                      });
+                }),
+                Obx(() {
+                  return IconButton(
+                      icon: isCart.value
+                          ? Icon(Icons.shopping_cart, color: Colors.red)
+                          : Icon(Icons.add_shopping_cart_outlined,
+                          color: iconGreen),
+                      onPressed: () {
+                        isCart(!(isCart.value));
+                      });
+                }),
+                Obx(() {
+                  return IconButton(
+                      icon: isLearn.value
+                          ? Icon(Icons.file_copy, color: Colors.red)
+                          : Icon(Icons.file_copy_outlined,
+                          color: iconGreen),
+                      onPressed: () {
+                        isLearn(!(isLearn.value));
+                      });
+                })
               ],
             ),
           ],
@@ -154,6 +179,13 @@ class MobCourseItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int oldPrice = 1000;
+    int newPrice = 800;
+    int disPrice = 3;
+    final isFavorite = false.obs;
+    final isCart = false.obs;
+    final isLearn = false.obs;
+
     return Container(
       height: 280,
       width: 260,
@@ -165,51 +197,45 @@ class MobCourseItem extends StatelessWidget {
           boxShadow: [
             BoxShadow(color: Colors.blue[900]!, blurRadius: 5),
           ]),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child:  Column(
+        // crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Container(
-            margin: EdgeInsets.only(top: 5),
-            height: 100,
-            width: 230,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              image: DecorationImage(
-                image: AssetImage(
-                  'web/assets/images/meeting.jpeg',
+          Expanded(
+            child: Container(
+              // height:150,
+              // width: 200,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                image: DecorationImage(
+                  image: AssetImage(
+                    'web/assets/images/meeting.jpeg',
+                  ),
+                  fit: BoxFit.fill,
                 ),
-                fit: BoxFit.fill,
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 5,
-              bottom: 5,
-              top: 8,
-            ),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
                 'Digital Marketing',
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   color: Colors.black,
-                  fontSize: 15,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-            ),
+            ],
           ),
-          SizedBox(
-            height: 10,
-          ),
+          SizedBox(height: 3),
           Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               CircleAvatar(
-                backgroundColor: Colors.red,
                 backgroundImage: AssetImage('web/assets/images/pell.jpg'),
                 radius: 20,
               ),
@@ -228,66 +254,90 @@ class MobCourseItem extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
-            height: 20,
-          ),
+          // SizedBox(height: 20,),
           Row(
             children: [
-              Column(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        '800',
-                        style: TextStyle(
-                          color: Colors.blue[800],
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      // if(model.discount !=0)
-                      Text(
-                        '1000',
-                        style: TextStyle(
-                          color: Colors.grey[600],
-                          fontSize: 13,
-                          decoration: TextDecoration.lineThrough,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
+                  Text(
+                    '$newPrice',
+                    style: TextStyle(
+                      color: Colors.blue[800],
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Container(
-                        padding: EdgeInsets.all(3),
-                        color: Colors.green[100],
-                        child: Text(
-                          'Bestseller',
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.green[900],
-                          ),
-                        ),
-                      ),
-                    ],
+                  SizedBox(
+                    width: 5,
                   ),
+                  // if(model.discount !=0)
+                  if (disPrice != 0)
+                    Text(
+                      '$oldPrice',
+                      style: TextStyle(
+                        color: Colors.grey[600],
+                        fontSize: 13,
+                        decoration: TextDecoration.lineThrough,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                 ],
               ),
               Spacer(),
-              IconButton(
-                  padding: EdgeInsets.zero,
-                  onPressed: () {},
-                  icon: Icon(Icons.favorite_border_outlined)),
+              if (disPrice != 0)
+                Container(
+                  padding: EdgeInsets.all(3),
+                  color: Colors.green[100],
+                  child: Text(
+                    'Bestseller',
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.green[900],
+                    ),
+                  ),
+                ),
+
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Obx(() {
+                return IconButton(
+                    icon: isFavorite.value
+                        ? Icon(Icons.favorite, color: Colors.red)
+                        : Icon(Icons.favorite_border_outlined,
+                        color: iconGreen),
+                    onPressed: () {
+                      isFavorite(!(isFavorite.value));
+                    });
+              }),
+              Obx(() {
+                return IconButton(
+                    icon: isCart.value
+                        ? Icon(Icons.shopping_cart, color: Colors.red)
+                        : Icon(Icons.add_shopping_cart_outlined,
+                        color: iconGreen),
+                    onPressed: () {
+                      isCart(!(isCart.value));
+                    });
+              }),
+              Obx(() {
+                return IconButton(
+                    icon: isLearn.value
+                        ? Icon(Icons.file_copy, color: Colors.red)
+                        : Icon(Icons.file_copy_outlined,
+                        color: iconGreen),
+                    onPressed: () {
+                      isLearn(!(isLearn.value));
+                    });
+              })
             ],
           ),
         ],
       ),
+
     );
   }
 }
@@ -300,7 +350,9 @@ class CourseItem extends StatelessWidget {
     int oldPrice = 1000;
     int newPrice = 800;
     int disPrice = 3;
-    final isClick = false.obs;
+    final isFavorite = false.obs;
+    final isCart = false.obs;
+    final isLearn = false.obs;
 
     return Container(
       // width: 50,
@@ -374,66 +426,82 @@ class CourseItem extends StatelessWidget {
           // SizedBox(height: 20,),
           Row(
             children: [
-              Column(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        '$newPrice',
-                        style: TextStyle(
-                          color: Colors.blue[800],
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      // if(model.discount !=0)
-                      if (disPrice != 0)
-                        Text(
-                          '$oldPrice',
-                          style: TextStyle(
-                            color: Colors.grey[600],
-                            fontSize: 13,
-                            decoration: TextDecoration.lineThrough,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                    ],
+                  Text(
+                    '$newPrice',
+                    style: TextStyle(
+                      color: Colors.blue[800],
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  // if(model.discount !=0)
                   if (disPrice != 0)
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Container(
-                          padding: EdgeInsets.all(3),
-                          color: Colors.green[100],
-                          child: Text(
-                            'Bestseller',
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.green[900],
-                            ),
-                          ),
-                        ),
-                      ],
+                    Text(
+                      '$oldPrice',
+                      style: TextStyle(
+                        color: Colors.grey[600],
+                        fontSize: 13,
+                        decoration: TextDecoration.lineThrough,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                 ],
               ),
               Spacer(),
+              if (disPrice != 0)
+              Container(
+                padding: EdgeInsets.all(3),
+                color: Colors.green[100],
+                child: Text(
+                  'Bestseller',
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.green[900],
+                  ),
+                ),
+              ),
+
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
               Obx(() {
                 return IconButton(
-                  icon: isClick.value
-                      ? Icon(Icons.favorite, color: Colors.red)
-                      : Icon(Icons.favorite_border_outlined,
-                          color: Colors.white),
-                  onPressed: () {
-                    isClick(!(isClick.value));
-                  },
-                );
+                    icon: isFavorite.value
+                        ? Icon(Icons.favorite, color: Colors.red)
+                        : Icon(Icons.favorite_border_outlined,
+                        color: iconGreen),
+                    onPressed: () {
+                      isFavorite(!(isFavorite.value));
+                    });
               }),
+              Obx(() {
+                return IconButton(
+                    icon: isCart.value
+                        ? Icon(Icons.shopping_cart, color: Colors.red)
+                        : Icon(Icons.add_shopping_cart_outlined,
+                        color: iconGreen),
+                    onPressed: () {
+                      isCart(!(isCart.value));
+                    });
+              }),
+              Obx(() {
+                return IconButton(
+                    icon: isLearn.value
+                        ? Icon(Icons.file_copy, color: Colors.red)
+                        : Icon(Icons.file_copy_outlined,
+                        color: iconGreen),
+                    onPressed: () {
+                      isLearn(!(isLearn.value));
+                    });
+              })
             ],
           ),
         ],

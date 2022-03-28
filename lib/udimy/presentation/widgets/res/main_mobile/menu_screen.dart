@@ -92,7 +92,7 @@ class  MenuItem{
 class MenuItems{
   static const categories =  MenuItem('Categories',Icons.home);
   static const courses =  MenuItem('Courses',Icons.library_books_rounded);
-  static const myLearning = MenuItem('My Learning',Icons.attach_file_sharp);
+  static const myLearning = MenuItem('My Learning',Icons.file_copy_outlined);
   static const favorite =  MenuItem('My Favorite',Icons.shopping_cart_outlined);
   static const notifications =  MenuItem('Notifications',Icons.notifications);
   static const setting =  MenuItem('Setting',Icons.settings);
