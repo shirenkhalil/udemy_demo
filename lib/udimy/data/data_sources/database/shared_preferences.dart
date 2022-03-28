@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:udeme_demo/udimy/domain/model/login/login_get.dart';
 
@@ -12,9 +11,9 @@ class GetSharedPreference {
   GetSharedPreference({required this.sharedPreferences});
 
   Future<void> setLoginData(LoginGetModel loginGetModel) async {
-    print("insert data: " + jsonEncode(loginGetModel?.toJson() ?? null));
+    print("insert data: " + jsonEncode(loginGetModel.toJson()));
     sharedPreferences.write(
-        SHAREDPREFERENCE_USER, loginGetModel?.toJson() ?? null);
+        SHAREDPREFERENCE_USER, loginGetModel.toJson());
   }
 
   dynamic getLoginData() {

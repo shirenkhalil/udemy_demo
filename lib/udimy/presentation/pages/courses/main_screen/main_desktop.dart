@@ -45,7 +45,7 @@ class _MainDesktopMyCoursesState extends State<MainDesktopMyCourses> {
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
               padding: EdgeInsets.only(left: 20,right: 20,top: 20),
-              crossAxisCount: 2,
+              crossAxisCount:4,
               crossAxisSpacing: 10,
               mainAxisSpacing:10,
               childAspectRatio: 1/1.44,

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-const Color color = Colors.black87;
+const Color black = Colors.black87;
 const Color green = Colors.lightGreen;
-Color orange = Colors.blue.shade900;
+Color blue = Colors.blue.shade900;
 Color green1 = Colors.green.shade200;
 Color iconGreen = Colors.green.shade600;
 Color mobColor = Colors.blueGrey[300]!;
@@ -210,14 +210,14 @@ Widget ButtonCategoriesItem({
     width: width,
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(borderRadius!),
-      color: Colors.white,
-      border:Border.all(color: Colors.black,width: 3, ),
+      color: green1,
+      border:Border.all(color: iconGreen,width: 3, ),
     ),
     child: TextButton(
       onPressed: onPressed,
       child: Text(
         isUpperCase ? text!.toUpperCase() : text!,
-        style: TextStyle(color: Colors.black,fontSize: 14),
+        style: TextStyle(color:black,fontSize: 20,),
       ),
     ),
   );
@@ -235,7 +235,7 @@ Widget iconButtonItems({
       iconButton(
         icon: icon,
         onPressed: function,
-        color: color,
+        color:black,
       ),
       Container(
         width: 30,

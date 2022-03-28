@@ -18,6 +18,7 @@ class Cases {
   Future<dynamic> login(LoginPostModel loginPostModel){
    return domainRepositry.login(loginPostModel);
   }
+
   Future<void> setLoginData(LoginGetModel loginGetModel){
    return domainRepositry.setLoginData(loginGetModel);
   }

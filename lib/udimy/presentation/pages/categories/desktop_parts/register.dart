@@ -24,9 +24,9 @@ double width = 400;
           Padding(
             padding: const EdgeInsets.only(left: 30),
             child: Text(
-              'Professional and Lifelong Learning',
+              'Great savings fora bright future',
               style: TextStyle(
-                color: orange,
+                color: blue,
                 fontWeight: FontWeight.bold,
                 fontSize: 35,
               ),
@@ -35,7 +35,7 @@ double width = 400;
           ),
           SizedBox(height: Height(context)*0.04,),
           Text(
-            'Build skills with courses , certificates,and degrees online from world-class universities.',
+            'Build skills with courses,Courses designed to help you reach your goals start now.',
             style: WritingStyle(),
             maxLines: 2,
           ),

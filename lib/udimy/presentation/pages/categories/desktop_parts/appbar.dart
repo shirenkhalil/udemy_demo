@@ -45,7 +45,7 @@ class AppBarWidget extends StatelessWidget {
         SizeBoxWidth(context),
         textButtonItem(
           text: 'AboutUs',
-          color: color,
+          color: black,
           onPressed: (){
             Get.toNamed(ABOUT_US);
           },
@@ -53,13 +53,13 @@ class AppBarWidget extends StatelessWidget {
         SizeBoxWidth(context),
         textButtonItem(
           text: 'Courses',
-          color: color,
+          color: black,
           onPressed: (){Get.toNamed(MY_COURSES);},
         ),
         SizeBoxWidth(context),
         textButtonItem(
           text: 'My learning',
-          color: color,
+          color: black,
           onPressed: (){Get.toNamed(MY_LEARNING);},
         ),
         SizeBoxWidth(context),

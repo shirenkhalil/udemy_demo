@@ -60,7 +60,7 @@ class _MainDesktopCategoriesState extends State<MainDesktopCategories> {
                     Text(
                       'Browser our Top courses',
                       style: TextStyle(
-                        color: orange,
+                        color:blue,
                         fontWeight: FontWeight.bold,
                         fontSize: 40,
                       ),
@@ -133,6 +133,7 @@ class _MainDesktopCategoriesState extends State<MainDesktopCategories> {
   }
   void next()=> controller.nextPage(duration: Duration(milliseconds: 500));
   void previous() => controller.previousPage(duration: Duration(milliseconds: 500));
-  Widget buildItem (int index)=>Center(child: WebCourseItem());
+  Widget buildItem (int index)=>Center(child: Container(
+      child: WebCourseItem()));
 }
 

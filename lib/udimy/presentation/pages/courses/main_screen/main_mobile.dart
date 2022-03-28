@@ -42,7 +42,7 @@ class _MainMobileCoursesState extends State<MainMobileCourses> {
                 crossAxisCount: 2,
                crossAxisSpacing: 10,
               mainAxisSpacing:10,
-              childAspectRatio: 1/1.44,
+              childAspectRatio: 1/1.40,
               children: List.generate(50, (index) => CourseItem(index)),
 
             ),
