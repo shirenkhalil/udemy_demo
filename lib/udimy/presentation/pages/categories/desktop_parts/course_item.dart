@@ -1,6 +1,5 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class WebCourseItem extends StatelessWidget {
   const WebCourseItem({Key? key}) : super(key: key);
@@ -13,54 +12,69 @@ class WebCourseItem extends StatelessWidget {
         width: 300,
         alignment: Alignment.center,
         padding: EdgeInsets.all(5),
-        margin: EdgeInsets.symmetric(horizontal:5),
+        margin: EdgeInsets.symmetric(horizontal: 5),
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(10),
-            boxShadow: [BoxShadow(color: Colors.blue[900]!, blurRadius: 5),]
-        ),
-        child:Column(
+            boxShadow: [
+              BoxShadow(color: Colors.blue[900]!, blurRadius: 5),
+            ]),
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
               margin: EdgeInsets.only(top: 5),
-              height:150,
+              height: 150,
               width: 230,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 image: DecorationImage(
-                  image: AssetImage('web/assets/images/meeting.jpeg',),
+                  image: AssetImage(
+                    'web/assets/images/meeting.jpeg',
+                  ),
                   fit: BoxFit.fill,
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 5,bottom: 5,top: 8,),
+              padding: const EdgeInsets.only(
+                left: 5,
+                bottom: 5,
+                top: 8,
+              ),
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: Text('Digital Marketing',
+                child: Text(
+                  'Digital Marketing',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
-                  ),),
+                  ),
+                ),
               ),
             ),
-            SizedBox(height:10,),
+            SizedBox(
+              height: 10,
+            ),
             Row(
               children: [
-                SizedBox(width: 3,),
+                SizedBox(
+                  width: 3,
+                ),
                 CircleAvatar(
                   backgroundColor: Colors.red,
                   backgroundImage: AssetImage('web/assets/images/pell.jpg'),
                   radius: 20,
                 ),
-                SizedBox(width: 5,),
+                SizedBox(
+                  width: 5,
+                ),
                 Text(
                   'Pill Gates',
-                  maxLines:1,
+                  maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -70,7 +84,9 @@ class WebCourseItem extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             Row(
               children: [
                 Column(
@@ -78,21 +94,27 @@ class WebCourseItem extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text('800',
+                        Text(
+                          '800',
                           style: TextStyle(
                             color: Colors.blue[800],
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                          ),),
-                        SizedBox(width: 5,),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
                         // if(model.discount !=0)
-                        Text('1000',
+                        Text(
+                          '1000',
                           style: TextStyle(
                             color: Colors.grey[600],
                             fontSize: 13,
                             decoration: TextDecoration.lineThrough,
                             fontWeight: FontWeight.bold,
-                          ),),
+                          ),
+                        ),
                       ],
                     ),
                     Row(
@@ -104,10 +126,11 @@ class WebCourseItem extends StatelessWidget {
                           child: Text(
                             'Bestseller',
                             style: TextStyle(
-                              fontSize:15,
+                              fontSize: 15,
                               color: Colors.green[900],
                             ),
-                          ),),
+                          ),
+                        ),
                       ],
                     ),
                   ],
@@ -115,7 +138,7 @@ class WebCourseItem extends StatelessWidget {
                 Spacer(),
                 IconButton(
                     padding: EdgeInsets.zero,
-                    onPressed: (){},
+                    onPressed: () {},
                     icon: Icon(Icons.favorite_border_outlined)),
               ],
             ),
@@ -126,54 +149,63 @@ class WebCourseItem extends StatelessWidget {
   }
 }
 
-
 class MobCourseItem extends StatelessWidget {
-  const MobCourseItem({int? index,Key? key}) : super(key: key);
+  const MobCourseItem({int? index, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return
-      Container(
+    return Container(
       height: 280,
       width: 260,
       padding: EdgeInsets.all(5),
-      margin: EdgeInsets.symmetric(horizontal:1),
+      margin: EdgeInsets.symmetric(horizontal: 1),
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
-          boxShadow: [BoxShadow(color: Colors.blue[900]!, blurRadius: 5),]
-      ),
+          boxShadow: [
+            BoxShadow(color: Colors.blue[900]!, blurRadius: 5),
+          ]),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-           margin: EdgeInsets.only(top: 5),
-            height:100,
+            margin: EdgeInsets.only(top: 5),
+            height: 100,
             width: 230,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               image: DecorationImage(
-                image: AssetImage('web/assets/images/meeting.jpeg',),
+                image: AssetImage(
+                  'web/assets/images/meeting.jpeg',
+                ),
                 fit: BoxFit.fill,
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 5,bottom: 5,top: 8,),
+            padding: const EdgeInsets.only(
+              left: 5,
+              bottom: 5,
+              top: 8,
+            ),
             child: Align(
               alignment: Alignment.centerLeft,
-              child: Text('Digital Marketing',
+              child: Text(
+                'Digital Marketing',
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
-                ),),
+                ),
+              ),
             ),
           ),
-          SizedBox(height:10,),
+          SizedBox(
+            height: 10,
+          ),
           Row(
             children: [
               CircleAvatar(
@@ -181,10 +213,12 @@ class MobCourseItem extends StatelessWidget {
                 backgroundImage: AssetImage('web/assets/images/pell.jpg'),
                 radius: 20,
               ),
-              SizedBox(width: 3,),
+              SizedBox(
+                width: 3,
+              ),
               Text(
                 'Pill Gates',
-                maxLines:1,
+                maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
@@ -194,7 +228,9 @@ class MobCourseItem extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           Row(
             children: [
               Column(
@@ -202,21 +238,27 @@ class MobCourseItem extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text('800',
+                      Text(
+                        '800',
                         style: TextStyle(
                           color: Colors.blue[800],
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                        ),),
-                      SizedBox(width: 5,),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
                       // if(model.discount !=0)
-                      Text('1000',
+                      Text(
+                        '1000',
                         style: TextStyle(
                           color: Colors.grey[600],
                           fontSize: 13,
                           decoration: TextDecoration.lineThrough,
                           fontWeight: FontWeight.bold,
-                        ),),
+                        ),
+                      ),
                     ],
                   ),
                   Row(
@@ -228,10 +270,11 @@ class MobCourseItem extends StatelessWidget {
                         child: Text(
                           'Bestseller',
                           style: TextStyle(
-                            fontSize:15,
+                            fontSize: 15,
                             color: Colors.green[900],
                           ),
-                        ),),
+                        ),
+                      ),
                     ],
                   ),
                 ],
@@ -239,7 +282,7 @@ class MobCourseItem extends StatelessWidget {
               Spacer(),
               IconButton(
                   padding: EdgeInsets.zero,
-                  onPressed: (){},
+                  onPressed: () {},
                   icon: Icon(Icons.favorite_border_outlined)),
             ],
           ),
@@ -249,7 +292,6 @@ class MobCourseItem extends StatelessWidget {
   }
 }
 
-
 class CourseItem extends StatelessWidget {
   CourseItem(int index, {Key? key}) : super(key: key);
 
@@ -258,138 +300,144 @@ class CourseItem extends StatelessWidget {
     int oldPrice = 1000;
     int newPrice = 800;
     int disPrice = 3;
-    bool isClick = true;
+    final isClick = false.obs;
 
-
-    return
-      Container(
-        // width: 50,
-        // height: 50,
-        padding: EdgeInsets.all(5),
-        margin: EdgeInsets.symmetric(horizontal: 1),
-        decoration: BoxDecoration(
-            color: Colors.white,
-            // color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [BoxShadow(color: Colors.blue[900]!, blurRadius: 5),]
-        ),
-        child: Column(
-          // crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Container(
-                // height:150,
-                // width: 200,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  image: DecorationImage(
-                    image: AssetImage('web/assets/images/meeting.jpeg',),
-                    fit: BoxFit.fill,
+    return Container(
+      // width: 50,
+      // height: 50,
+      padding: EdgeInsets.all(5),
+      margin: EdgeInsets.symmetric(horizontal: 1),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          // color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(color: Colors.blue[900]!, blurRadius: 5),
+          ]),
+      child: Column(
+        // crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Expanded(
+            child: Container(
+              // height:150,
+              // width: 200,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                image: DecorationImage(
+                  image: AssetImage(
+                    'web/assets/images/meeting.jpeg',
                   ),
+                  fit: BoxFit.fill,
                 ),
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text('Digital Marketing',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),),
-              ],
-            ),
-            SizedBox(height: 3),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                CircleAvatar(
-                  backgroundImage: AssetImage('web/assets/images/pell.jpg'),
-                  radius: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                'Digital Marketing',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
                 ),
-                SizedBox(width: 3,),
-                Text(
-                  'Pill Gates',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
-                    color: Colors.black,
+              ),
+            ],
+          ),
+          SizedBox(height: 3),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              CircleAvatar(
+                backgroundImage: AssetImage('web/assets/images/pell.jpg'),
+                radius: 20,
+              ),
+              SizedBox(
+                width: 3,
+              ),
+              Text(
+                'Pill Gates',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  color: Colors.black,
+                ),
+              ),
+            ],
+          ),
+          // SizedBox(height: 20,),
+          Row(
+            children: [
+              Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        '$newPrice',
+                        style: TextStyle(
+                          color: Colors.blue[800],
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      // if(model.discount !=0)
+                      if (disPrice != 0)
+                        Text(
+                          '$oldPrice',
+                          style: TextStyle(
+                            color: Colors.grey[600],
+                            fontSize: 13,
+                            decoration: TextDecoration.lineThrough,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                    ],
                   ),
-                ),
-              ],
-            ),
-            // SizedBox(height: 20,),
-            Row(
-              children: [
-                Column(
-                  children: [
+                  if (disPrice != 0)
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-
-                        Text('$newPrice',
-                          style: TextStyle(
-                            color: Colors.blue[800],
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),),
-                        SizedBox(width: 5,),
-                        // if(model.discount !=0)
-                        if(disPrice != 0)
-                          Text('$oldPrice',
+                        Container(
+                          padding: EdgeInsets.all(3),
+                          color: Colors.green[100],
+                          child: Text(
+                            'Bestseller',
                             style: TextStyle(
-                              color: Colors.grey[600],
-                              fontSize: 13,
-                              decoration: TextDecoration.lineThrough,
-                              fontWeight: FontWeight.bold,
-                            ),),
+                              fontSize: 15,
+                              color: Colors.green[900],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
-                    if(disPrice != 0)
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            padding: EdgeInsets.all(3),
-                            color: Colors.green[100],
-                            child: Text(
-                              'Bestseller',
-                              style: TextStyle(
-                                fontSize: 15,
-                                color: Colors.green[900],
-                              ),
-                            ),),
-                        ],
-                      ),
-                  ],
-                ),
-                Spacer(),
-                IconButton(
-                  icon: isClick ?
-                  Icon(Icons.favorite, color: Colors.red) :
-                  Icon(Icons.favorite_border_outlined, color: Colors.white),
-
+                ],
+              ),
+              Spacer(),
+              Obx(() {
+                return IconButton(
+                  icon: isClick.value
+                      ? Icon(Icons.favorite, color: Colors.red)
+                      : Icon(Icons.favorite_border_outlined,
+                          color: Colors.white),
                   onPressed: () {
-                    setState((){
-                      isClick = !isClick;
-                    });
-
+                    isClick(!(isClick.value));
                   },
-                ),
-              ],
-            ),
-
-
-          ],
-        ),
-      );
+                );
+              }),
+            ],
+          ),
+        ],
+      ),
+    );
   }
-
-
 }
