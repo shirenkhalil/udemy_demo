@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -9,6 +8,8 @@ import 'package:udeme_demo/udimy/presentation/pages/categories/desktop_parts/rig
 
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/zoom_drawer_mobile.dart';
+
+import '../../../../domain/model/course/course_model.dart';
 
 class MainMobileCategories extends StatefulWidget {
   MainMobileCategories({Key? key}) : super(key: key);
@@ -28,6 +29,8 @@ class _MainMobileCategoriesState extends State<MainMobileCategories> {
     'Math',
     'chemistry'
   ];
+
+   List<CourseModel> Course = [];
 
   @override
   Widget build(BuildContext context) {
@@ -109,9 +112,8 @@ class _MainMobileCategoriesState extends State<MainMobileCategories> {
                   ),
                   Center(
                     child: CarouselSlider.builder(
-                      itemCount: 15,
-                      itemBuilder: (context, index, realIndex) =>
-                          CourseBuildItem(index),
+                      itemCount: Course.length,
+                      itemBuilder: (context, index, realIndex) => Center(child: MobCourseItem(context,Course[index])),
                       options: CarouselOptions(
                         height: 320,
                         pageSnapping: false,
@@ -170,5 +172,5 @@ class _MainMobileCategoriesState extends State<MainMobileCategories> {
     );
   }
 
-  Widget CourseBuildItem(int index) => Center(child: MobCourseItem());
+  // Widget CourseBuildItem(CourseModel course) => Center(child: MobCourseItem());
 }

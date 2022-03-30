@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:udeme_demo/udimy/presentation/pages/categories/desktop_parts/course_item.dart';
 
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
-import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/zoom_drawer_mobile.dart';
+
+import '../../../../domain/model/course/course_model.dart';
 
 class MainDesktopMyCourses extends StatefulWidget {
   MainDesktopMyCourses({Key? key}) : super(key: key);
@@ -23,6 +24,8 @@ class _MainDesktopMyCoursesState extends State<MainDesktopMyCourses> {
   void dispose() {
     super.dispose();
   }
+
+  List<CourseModel> Course=[];
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +52,9 @@ class _MainDesktopMyCoursesState extends State<MainDesktopMyCourses> {
               crossAxisSpacing: 10,
               mainAxisSpacing:10,
               childAspectRatio: 1/1.44,
-              children: List.generate(50, (index) => CourseItem(index)),
+              children: List.generate(
+                  Course.length,
+                      (index) => CourseItem(context,Course[index])),
 
             ),
 

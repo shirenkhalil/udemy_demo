@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:udeme_demo/injection.dart';
+import 'package:udeme_demo/sqfliit.dart';
 import 'package:udeme_demo/udimy/presentation/pages/about_us/main_about_us.dart';
 import 'package:udeme_demo/udimy/presentation/pages/cart/main_cart.dart';
 import 'package:udeme_demo/udimy/presentation/pages/categories/main_categories.dart';

@@ -1,12 +1,10 @@
-import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:udeme_demo/main.dart';
 import 'package:udeme_demo/udimy/presentation/pages/categories/desktop_parts/course_item.dart';
 import 'package:udeme_demo/udimy/presentation/pages/categories/desktop_parts/right_image.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 
+import '../../../../domain/model/course/course_model.dart';
 import '../desktop_parts/appbar.dart';
 
 import '../desktop_parts/register.dart';
@@ -25,6 +23,8 @@ class MainDesktopCategories extends StatefulWidget {
 class _MainDesktopCategoriesState extends State<MainDesktopCategories> {
   int actionIndex=0;
   final controller = CarouselController();
+
+  List<CourseModel> Course=[];
 
   @override
   Widget build(BuildContext context) {
@@ -88,8 +88,8 @@ class _MainDesktopCategoriesState extends State<MainDesktopCategories> {
                             width: Width(context)*0.9,
                             child: CarouselSlider.builder(
                               carouselController: controller,
-                              itemCount: 20,
-                              itemBuilder: (context,index,realIndex) =>buildItem ( index),
+                              itemCount: Course.length,
+                              itemBuilder: (context,index,realIndex) =>buildItem (context, Course[index]),
                               options: CarouselOptions(
                                 height:800,
                                 initialPage: 0,
@@ -133,7 +133,7 @@ class _MainDesktopCategoriesState extends State<MainDesktopCategories> {
   }
   void next()=> controller.nextPage(duration: Duration(milliseconds: 500));
   void previous() => controller.previousPage(duration: Duration(milliseconds: 500));
-  Widget buildItem (int index)=>Center(child: Container(
-      child: WebCourseItem()));
+  Widget buildItem (context,CourseModel course)=>Center(child: Container(
+      child: WebCourseItem(context, course)));
 }
 
