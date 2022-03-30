@@ -24,7 +24,7 @@ double newPrice ({oldPrice, disPrice}){
     oldPrice-(oldPrice*disPrice);
 }
 
-List<CourseModel> Course =[
+List<CourseModel> courseList =[
   CourseModel(
     title:'Python',
     image:'web/assets/images/meeting.jpeg',

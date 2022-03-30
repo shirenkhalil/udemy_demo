@@ -25,7 +25,7 @@ class _MainMobileCoursesState extends State<MainMobileCourses> {
     createDatabase();
   }
 
-List<CourseModel> Course=[];
+
 
   @override
   Widget build(BuildContext context,) {
@@ -52,7 +52,7 @@ List<CourseModel> Course=[];
                crossAxisSpacing: 10,
               mainAxisSpacing:10,
               childAspectRatio: 1/1.40,
-              children: List.generate(Course.length, (index) => CourseItem(context,Course[index])),
+              children: List.generate(courseList.length, (index) => CourseItem(context,courseList[index])),
 
             ),
 

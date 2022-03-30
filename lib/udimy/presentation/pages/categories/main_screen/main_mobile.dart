@@ -30,7 +30,6 @@ class _MainMobileCategoriesState extends State<MainMobileCategories> {
     'chemistry'
   ];
 
-   List<CourseModel> Course = [];
 
   @override
   Widget build(BuildContext context) {
@@ -112,8 +111,8 @@ class _MainMobileCategoriesState extends State<MainMobileCategories> {
                   ),
                   Center(
                     child: CarouselSlider.builder(
-                      itemCount: Course.length,
-                      itemBuilder: (context, index, realIndex) => Center(child: MobCourseItem(context,Course[index])),
+                      itemCount: courseList.length,
+                      itemBuilder: (context, index, realIndex) => Center(child: MobCourseItem(context,courseList[index])),
                       options: CarouselOptions(
                         height: 320,
                         pageSnapping: false,
