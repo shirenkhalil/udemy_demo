@@ -17,10 +17,10 @@ import 'package:udeme_demo/udimy/presentation/pages/setting/main_setting.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/menu_screen.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/zoom_drawer_mobile.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // للتاكد من انتهاء كل waiting function
-  await init();
-  runApp(const MyApp());
+ main()  {
+  WidgetsFlutterBinding.ensureInitialized();
+  init();
+    runApp(const MyApp());// للتاكد من انتهاء كل waiting function
 }
 
 class MyApp extends StatelessWidget {
@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('start run app ............................................');
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',

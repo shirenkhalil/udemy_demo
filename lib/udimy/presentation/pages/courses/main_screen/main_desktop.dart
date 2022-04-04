@@ -25,7 +25,6 @@ class _MainDesktopMyCoursesState extends State<MainDesktopMyCourses> {
     super.dispose();
   }
 
-  List<CourseModel> Course=[];
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +52,8 @@ class _MainDesktopMyCoursesState extends State<MainDesktopMyCourses> {
               mainAxisSpacing:10,
               childAspectRatio: 1/1.44,
               children: List.generate(
-                  Course.length,
-                      (index) => CourseItem(context,Course[index])),
+                  courseList.length,
+                      (index) => CourseItem(context,courseList[index])),
 
             ),
 

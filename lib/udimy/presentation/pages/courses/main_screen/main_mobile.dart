@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/zoom_drawer_mobile.dart';
-
-import '../../../../../sqfliit.dart';
 import '../../../../domain/model/course/course_model.dart';
 import '../../categories/desktop_parts/course_item.dart';
 
@@ -22,9 +20,8 @@ class _MainMobileCoursesState extends State<MainMobileCourses> {
 @override
   void initState() {
     super.initState();
-    createDatabase();
-  }
 
+  }
 
 
   @override
@@ -52,7 +49,8 @@ class _MainMobileCoursesState extends State<MainMobileCourses> {
                crossAxisSpacing: 10,
               mainAxisSpacing:10,
               childAspectRatio: 1/1.40,
-              children: List.generate(courseList.length, (index) => CourseItem(context,courseList[index])),
+              children: List.generate(courseList.length,
+                      (index) => CourseItem(context,courseList[index])),
 
             ),
 

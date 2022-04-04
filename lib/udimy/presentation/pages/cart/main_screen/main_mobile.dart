@@ -4,6 +4,8 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:udeme_demo/main.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 
+import '../../../widgets/res/main_mobile/zoom_drawer_mobile.dart';
+
 class MainMobileCart extends StatefulWidget {
   MainMobileCart({Key? key}) : super(key: key);
 
@@ -32,20 +34,22 @@ class _MainMobileCartState extends State<MainMobileCart> {
         backgroundColor: Colors.white,
         title: titleRow(context: context,text: 'MY FAVORITE'),
         elevation: 0,
-        leading:  IconButton(
-          onPressed:() => Get.toNamed(HOME),
-          icon:Icon(
-            Icons.menu,
-            color: mobColor,
-            size: 40,
-          ),
-        ),
+        leading:  MenuWidget(),
+        //   IconButton(
+        //   onPressed:() => Get.toNamed(HOME),
+        //   icon:Icon(
+        //     Icons.menu,
+        //     color: mobColor,
+        //     size: 40,
+        //   ),
+        // ),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(vertical: Height(context) * 0.008),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+
 
           ],
         ),

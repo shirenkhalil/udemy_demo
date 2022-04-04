@@ -24,7 +24,6 @@ class _MainDesktopCategoriesState extends State<MainDesktopCategories> {
   int actionIndex=0;
   final controller = CarouselController();
 
-  List<CourseModel> Course=[];
 
   @override
   Widget build(BuildContext context) {
@@ -88,8 +87,8 @@ class _MainDesktopCategoriesState extends State<MainDesktopCategories> {
                             width: Width(context)*0.9,
                             child: CarouselSlider.builder(
                               carouselController: controller,
-                              itemCount: Course.length,
-                              itemBuilder: (context,index,realIndex) =>buildItem (context, Course[index]),
+                              itemCount:courseList.length,
+                              itemBuilder: (context,index,realIndex) =>buildItem (context, courseList[index]),
                               options: CarouselOptions(
                                 height:800,
                                 initialPage: 0,

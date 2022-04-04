@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 const Color black = Colors.black87;
@@ -7,6 +8,9 @@ Color blue = Colors.blue.shade900;
 Color green1 = Colors.green.shade200;
 Color iconGreen = Colors.green.shade600;
 Color mobColor = Colors.blueGrey[300]!;
+
+
+
 
 double Width(context) => MediaQuery.of(context).size.width;
 
@@ -218,6 +222,8 @@ Widget ButtonCategoriesItem({
       child: Text(
         isUpperCase ? text!.toUpperCase() : text!,
         style: TextStyle(color:black,fontSize: 20,),
+        maxLines: 1,
+        overflow:TextOverflow.ellipsis,
       ),
     ),
   );

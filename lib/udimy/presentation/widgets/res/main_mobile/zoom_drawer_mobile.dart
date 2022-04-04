@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:udeme_demo/udimy/presentation/pages/categ_home/main_categ_home.dart';
 import 'package:udeme_demo/udimy/presentation/pages/register/main_register.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 import 'package:udeme_demo/udimy/presentation/pages/about_us/main_about_us.dart';
@@ -56,8 +57,10 @@ class _HomePageState extends State<DrawerMobile> {
 
   Widget getScreen() {
     switch (widget.menuItem) {
-      case MenuItems.categories:
+      case MenuItems.home:
         return MainCategories();
+      case MenuItems.categories:
+        return MainCategoriesH();
       case MenuItems.courses:
         return MainMyCourses();
       case MenuItems.myLearning:
@@ -80,6 +83,9 @@ class _HomePageState extends State<DrawerMobile> {
         return MainCategories();
     }
   }
+}
+
+class MainCategoriesHome {
 }
 
 class MenuWidget extends StatelessWidget {

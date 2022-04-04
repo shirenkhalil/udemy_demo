@@ -9,6 +9,7 @@ import 'package:udeme_demo/udimy/presentation/pages/categories/desktop_parts/rig
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/zoom_drawer_mobile.dart';
 
+import '../../../../domain/model/categories/categories_model.dart';
 import '../../../../domain/model/course/course_model.dart';
 
 class MainMobileCategories extends StatefulWidget {
@@ -22,17 +23,11 @@ class MainMobileCategories extends StatefulWidget {
 
 class _MainMobileCategoriesState extends State<MainMobileCategories> {
   int actionIndex = 0;
-  List<String> categoryList = [
-    'Science',
-    'Arabic',
-    'English',
-    'Math',
-    'chemistry'
-  ];
+   //cart
 
 
   @override
-  Widget build(BuildContext context) {
+  Widget build (BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -112,7 +107,8 @@ class _MainMobileCategoriesState extends State<MainMobileCategories> {
                   Center(
                     child: CarouselSlider.builder(
                       itemCount: courseList.length,
-                      itemBuilder: (context, index, realIndex) => Center(child: MobCourseItem(context,courseList[index])),
+                      itemBuilder: (context, index, realIndex) =>
+                          Center(child: MobCourseItem(context,courseList[index])),
                       options: CarouselOptions(
                         height: 320,
                         pageSnapping: false,
@@ -147,16 +143,12 @@ class _MainMobileCategoriesState extends State<MainMobileCategories> {
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: ListView.separated(
-                          scrollDirection: Axis.horizontal,
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) => ButtonCategoriesItem(
-                                text: categoryList[index],
-                                onPressed: () {},
-                              ),
-                          separatorBuilder: (context, index) => SizedBox(
-                                width: 5,
-                              ),
-                          itemCount: categoryList.length),
+                        scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) => BuildMobCatMainItem(CatModel.catList[index]),
+                        separatorBuilder: (context, index) => SizedBox(width: 5,),
+                        itemCount:CatModel.catList.length,
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -170,6 +162,13 @@ class _MainMobileCategoriesState extends State<MainMobileCategories> {
       ),
     );
   }
-
+  Widget BuildMobCatMainItem (CatModel model)=> Container(
+    height: 50,
+    width: 150,
+    child:ButtonCategoriesItem(
+      text: model.title,
+      onPressed: () {},
+    ),
+  );
   // Widget CourseBuildItem(CourseModel course) => Center(child: MobCourseItem());
 }

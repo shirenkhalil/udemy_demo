@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:udeme_demo/udimy/domain/model/login/login_get.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 
 
@@ -25,36 +28,11 @@ class MenuPage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            DrawerHeader(
-                child:Align(
-                  alignment: Alignment.topLeft,
-                  child:Column(
-                   crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(height: 10,),
-                      CircleAvatar(
-                        backgroundImage: AssetImage('web/assets/images/user.png'),
-                        maxRadius:40,
-                      ),
-                      Spacer(),
-                      Text(
-                          'Hi , NAME',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                        ),),
-                      Text(
-                        'Welcome back ',
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
-                        ),),
-                    ],),),),
-
+            buildHeader(User()),
             ...MenuItems.all.map(buildMenuItem).toList(),
-            Spacer(flex: 2,),
+            Spacer(flex:2,),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical:6.0),
               child: Row(
                 children: [
                   Icon(
@@ -79,6 +57,31 @@ class MenuPage extends StatelessWidget {
       onTap:()=> onSelectedItem(item),
     ),
   );
+  Widget buildHeader (User user)=> DrawerHeader(
+    child:Align(
+      alignment: Alignment.topLeft,
+      child:Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: 10,),
+          CircleAvatar(
+            backgroundImage: AssetImage('${user.img}'),
+            maxRadius:40,
+          ),
+          Spacer(),
+          Text(
+            'Hi , ${user.name}',
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.white,
+            ),),
+          Text(
+            'Welcome back ',
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.white,
+            ),),
+        ],),),);
 }
 
 
@@ -90,7 +93,8 @@ class  MenuItem{
 }
 
 class MenuItems{
-  static const categories =  MenuItem('Categories',Icons.home);
+  static const home =  MenuItem('Home',Icons.home);
+  static const categories =  MenuItem('Categories',Icons.list_outlined);
   static const courses =  MenuItem('Courses',Icons.library_books_rounded);
   static const myLearning = MenuItem('My Learning',Icons.file_copy_outlined);
   static const favorite =  MenuItem('My Favorite',Icons.shopping_cart_outlined);
@@ -103,6 +107,7 @@ class MenuItems{
 
 
   static const all =<MenuItem>[
+    home,
     categories,
     courses,
     myLearning,

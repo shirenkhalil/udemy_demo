@@ -18,13 +18,13 @@ class CourseModel {
     required this. newPrice,
     required this. disPrice,
   } );}
+
 double newPrice ({oldPrice, disPrice}){
   print('oldPrice=$oldPrice   disPrice= $disPrice');
   return
     oldPrice-(oldPrice*disPrice);
 }
-
-List<CourseModel> courseList =[
+ List<CourseModel> courseList =[
   CourseModel(
     title:'Python',
     image:'web/assets/images/meeting.jpeg',

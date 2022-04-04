@@ -7,6 +7,8 @@ import 'package:udeme_demo/main.dart';
 import 'package:udeme_demo/udimy/presentation/pages/about_us/main_screen/main_desktop.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 
+import '../../../../domain/model/login/login_get.dart';
+
 class AppBarWidget extends StatelessWidget {
   const AppBarWidget({Key? key}) : super(key: key);
 
@@ -71,18 +73,19 @@ class AppBarWidget extends StatelessWidget {
             function: (){Get.toNamed(NOTIFICATION);},
             icon: Icons.notifications_none_outlined
         ),
-        InkWell(
-          onTap: (){},
-          child: CircleAvatar(
-            backgroundImage:  AssetImage('web/assets/images/user.png'),
-            radius:20,
-          ),
-        ),
+        UserAccount(User()),
         SizeBoxWidth(context),
         SizeBoxWidth(context),
       ],
     ),
     );
   }
+  Widget UserAccount(User user)=> InkWell(
+    onTap: (){},
+    child: CircleAvatar(
+      backgroundImage:  AssetImage('${user.img}'),
+      radius:20,
+    ),
+  );
 }
 
