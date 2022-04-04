@@ -15,10 +15,6 @@ class DataRepositry extends DomainRepositry {
     required this.getSharedPreference,
   });
 
-  @override
-  testExample() {
-    return dioRemote.test();
-  }
 
   @override
   Future login(LoginPostModel loginPostModel) {

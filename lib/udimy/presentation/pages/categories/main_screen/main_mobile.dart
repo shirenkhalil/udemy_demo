@@ -9,6 +9,7 @@ import 'package:udeme_demo/udimy/presentation/pages/categories/desktop_parts/rig
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/zoom_drawer_mobile.dart';
 
+import '../../../../data/data_sources/database/constant_data.dart';
 import '../../../../domain/model/categories/categories_model.dart';
 import '../../../../domain/model/course/course_model.dart';
 

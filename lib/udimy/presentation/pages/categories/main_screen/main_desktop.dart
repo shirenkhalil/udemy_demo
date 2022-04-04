@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:udeme_demo/udimy/data/data_sources/database/constant_data.dart';
 import 'package:udeme_demo/udimy/presentation/pages/categories/desktop_parts/course_item.dart';
 import 'package:udeme_demo/udimy/presentation/pages/categories/desktop_parts/right_image.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';

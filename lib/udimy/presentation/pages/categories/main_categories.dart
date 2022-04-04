@@ -19,7 +19,6 @@ class _MainCategoriesState extends State<MainCategories> {
   @override
   void initState() {
     super.initState();
-    sl<Cases>().testExample().then((value) => print(value));
   }
 
   @override

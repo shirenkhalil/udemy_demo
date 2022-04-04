@@ -26,11 +26,11 @@ class MenuPage extends StatelessWidget {
     return Scaffold(
       backgroundColor:Colors.blueGrey[300],
       body: SafeArea(
-        child: Column(
+        child: ListView(
           children: [
             buildHeader(User()),
             ...MenuItems.all.map(buildMenuItem).toList(),
-            Spacer(flex:2,),
+          //  Spacer(flex:2,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical:6.0),
               child: Row(

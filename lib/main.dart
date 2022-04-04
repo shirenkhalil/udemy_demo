@@ -17,9 +17,9 @@ import 'package:udeme_demo/udimy/presentation/pages/setting/main_setting.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/menu_screen.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/zoom_drawer_mobile.dart';
 
- main()  {
+ main()async{
   WidgetsFlutterBinding.ensureInitialized();
-  init();
+ await init();
     runApp(const MyApp());// للتاكد من انتهاء كل waiting function
 }
 

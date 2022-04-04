@@ -13,7 +13,6 @@ login(LoginPostModel loginPostModel, BuildContext context) async {
   print('end login');
   if (response is LoginGetModel) {
     //// success data
-
     showToast('welcome ${response.msg!.first.user!.name}', MessageErrorType.success);
     sl<Cases>().setLoginData(response);
   } else {

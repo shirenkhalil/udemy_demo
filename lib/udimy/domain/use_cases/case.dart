@@ -11,9 +11,6 @@ class Cases {
 
   Cases({required this.domainRepositry});
 
- Future testExample(){
-    return domainRepositry.testExample();
-  }
 
   Future<dynamic> login(LoginPostModel loginPostModel){
    return domainRepositry.login(loginPostModel);

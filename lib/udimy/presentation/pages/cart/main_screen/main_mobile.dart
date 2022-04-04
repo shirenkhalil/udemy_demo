@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:udeme_demo/main.dart';
+import 'package:udeme_demo/udimy/presentation/pages/cart/methods/get_cart_courses.dart';
+import 'package:udeme_demo/udimy/presentation/pages/categories/desktop_parts/course_item.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 
 import '../../../widgets/res/main_mobile/zoom_drawer_mobile.dart';
@@ -44,16 +46,11 @@ class _MainMobileCartState extends State<MainMobileCart> {
         //   ),
         // ),
       ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(vertical: Height(context) * 0.008),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-
-
-          ],
-        ),
-      ),
+      body: GridView.builder(
+          itemCount: getCartCourses().length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,crossAxisSpacing: 5,mainAxisSpacing: 5), itemBuilder: (context,index){
+        return CourseItem(context,getCartCourses()[index]);
+      }),
     );
   }
 }

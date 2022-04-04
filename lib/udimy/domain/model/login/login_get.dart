@@ -14,6 +14,16 @@ class LoginGetModel {
     }
   }
 
+  fromJson(Map<String, dynamic> json) {
+    success = json['success'];
+    if (json['msg'] != null) {
+      msg = <Msg>[];
+      json['msg'].forEach((v) {
+        msg!.add(new Msg.fromJson(v));
+      });
+    }
+  }
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['success'] = this.success;
