@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:udeme_demo/main.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 
 class MainDesktopRegister extends StatefulWidget {

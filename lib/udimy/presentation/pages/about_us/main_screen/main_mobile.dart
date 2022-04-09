@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:get/get.dart';
-import 'package:udeme_demo/main.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 
 
 
 class MainMobileAboutUs extends StatefulWidget {
-  MainMobileAboutUs({Key? key}) : super(key: key);
+  const MainMobileAboutUs({Key? key}) : super(key: key);
 
   @override
   _MainMobileAboutUsState createState() {
@@ -28,7 +26,7 @@ class _MainMobileAboutUsState extends State<MainMobileAboutUs> {
         elevation: 0,
         title: titleRow(context: context,text: 'about us'),
         leading: IconButton(
-          onPressed:() => ZoomDrawer.of(context)?.toggle() ?? Get.toNamed(HOME),
+          onPressed:() => ZoomDrawer.of(context)?.toggle(),
           icon:Icon(
             Icons.menu,
             color: mobColor,
@@ -44,7 +42,7 @@ class _MainMobileAboutUsState extends State<MainMobileAboutUs> {
                 vertical: Height(context) * 0.008,
                 horizontal:Height(context) * 0.01 ),
             child: Column(
-              children: [
+              children: const [
 
 
               ],

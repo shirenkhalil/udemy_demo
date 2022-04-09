@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:get/get.dart';
-import 'package:udeme_demo/main.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 
 class MainDesktopSearch extends StatefulWidget {

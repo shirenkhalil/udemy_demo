@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:udeme_demo/main.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
-import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/zoom_drawer_mobile.dart';
 
 class MainDesktopLogin extends StatefulWidget {
   MainDesktopLogin({Key? key}) : super(key: key);

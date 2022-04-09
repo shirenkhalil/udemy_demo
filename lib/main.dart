@@ -1,19 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:udeme_demo/injection.dart';
-import 'package:udeme_demo/sqfliit.dart';
-import 'package:udeme_demo/udimy/presentation/pages/about_us/main_about_us.dart';
-import 'package:udeme_demo/udimy/presentation/pages/cart/main_cart.dart';
-import 'package:udeme_demo/udimy/presentation/pages/categories/main_categories.dart';
-import 'package:udeme_demo/udimy/presentation/pages/categories/main_screen/main_desktop.dart';
-import 'package:udeme_demo/udimy/presentation/pages/courses/main_courses.dart';
-import 'package:udeme_demo/udimy/presentation/pages/login/main_login.dart';
-import 'package:udeme_demo/udimy/presentation/pages/my_learning/main_my_learning.dart';
-import 'package:udeme_demo/udimy/presentation/pages/notification/main_notification.dart';
-import 'package:udeme_demo/udimy/presentation/pages/register/main_register.dart';
-import 'package:udeme_demo/udimy/presentation/pages/search/main_search.dart';
-import 'package:udeme_demo/udimy/presentation/pages/setting/main_setting.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/menu_screen.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/zoom_drawer_mobile.dart';
 
@@ -46,7 +33,7 @@ class MyApp extends StatelessWidget {
             page: () => DrawerMobile(menuItem: MenuItems.categories,),
             transition: Transition.fadeIn),
         GetPage(
-            name: CART, page: () => DrawerMobile(menuItem: MenuItems.favorite,),
+            name: CART, page: () => DrawerMobile(menuItem: MenuItems.myCart,),
             transition: Transition.fadeIn),
         GetPage(
             name: NOTIFICATION,
@@ -85,7 +72,6 @@ class MyApp extends StatelessWidget {
   }
 
 }
-
 
 const String HOME = '/HOME';
 const String CATEGORIES = '/CATEGORIES';

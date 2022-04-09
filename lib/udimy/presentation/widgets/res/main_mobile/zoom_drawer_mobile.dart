@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_zoom_drawer/config.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:udeme_demo/udimy/presentation/pages/categ_home/main_categ_home.dart';
 import 'package:udeme_demo/udimy/presentation/pages/register/main_register.dart';
@@ -12,43 +13,49 @@ import 'package:udeme_demo/udimy/presentation/pages/my_learning/main_my_learning
 import 'package:udeme_demo/udimy/presentation/pages/notification/main_notification.dart';
 import 'package:udeme_demo/udimy/presentation/pages/search/main_search.dart';
 import 'package:udeme_demo/udimy/presentation/pages/setting/main_setting.dart';
-import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/menu_screen.dart';
+import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/menu_screen.dart'as mypage;
+
+
 
 
 final drawerController = ZoomDrawerController();
 
-
+//ignore: must_be_immutable
 class DrawerMobile extends StatefulWidget {
+
+
   @override
   State<DrawerMobile> createState() => _HomePageState();
-  DrawerMobile({Key? key,this.menuItem = MenuItems.categories}) : super(key: key);
-  MenuItem menuItem ;
+  DrawerMobile({Key? key,this.menuItem = mypage.MenuItems.myLearning,}) : super(key: key);
+    mypage.MenuItem menuItem;
 }
-
 class _HomePageState extends State<DrawerMobile> {
 
 
   @override
   Widget build(BuildContext context) {
+
+    // ignore: avoid_print
     print('get zoom drawer');
     return ZoomDrawer(
-       controller: drawerController,
+      controller: drawerController,
       mainScreen: getScreen(),
       menuScreen: Builder(
-        builder: (context) => MenuPage(
+        builder: (context) => mypage.MenuPage(
             currentItem: widget.menuItem,
             onSelectedItem: (item) {
+              // ignore: avoid_print
               print('get item :: ${item.title}');
               setState(() => widget.menuItem = item);
 
               ZoomDrawer.of(context)!.close();
             }),
       ),
-      style: DrawerStyle.Style1,
+      style: DrawerStyle.style1,
       borderRadius: 40.0,
       showShadow: true,
       angle: 0.0,
-      backgroundColor: Colors.blueGrey[600]!,
+      menuBackgroundColor: Colors.blueGrey[600]!,
       // slideWidth: MediaQuery.of(context).size.width *(ZoomDrawer.isRTL()? .45 :0.65),
       openCurve: Curves.fastLinearToSlowEaseIn,
       closeCurve: Curves.bounceInOut,
@@ -57,27 +64,27 @@ class _HomePageState extends State<DrawerMobile> {
 
   Widget getScreen() {
     switch (widget.menuItem) {
-      case MenuItems.home:
+      case mypage.MenuItems.home:
         return MainCategories();
-      case MenuItems.categories:
+      case mypage.MenuItems.categories:
         return MainCategoriesH();
-      case MenuItems.courses:
+      case mypage.MenuItems.courses:
         return MainMyCourses();
-      case MenuItems.myLearning:
+      case mypage.MenuItems.myLearning:
         return MainMyLearning();
-      case MenuItems.favorite:
+      case mypage.MenuItems.myCart:
         return MainCart();
-      case MenuItems.notifications:
+      case mypage.MenuItems.notifications:
         return MainNotification();
-      case MenuItems.setting:
+      case mypage.MenuItems.setting:
         return MainSetting();
-      case MenuItems.login:
+      case mypage.MenuItems.login:
         return MainLogin();
-      case MenuItems.search:
+      case mypage.MenuItems.search:
         return MainSearch();
-      case MenuItems.aboutUs:
+      case mypage.MenuItems.aboutUs:
         return MainAboutUs();
-      case MenuItems.register:
+      case mypage.MenuItems.register:
         return MainRegister();
       default:
         return MainCategories();
@@ -88,12 +95,14 @@ class _HomePageState extends State<DrawerMobile> {
 class MainCategoriesHome {
 }
 
+// ignore: use_key_in_widget_constructors
 class MenuWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
         onPressed: () {
-          ZoomDrawer.of(context)?.toggle() ?? print('null');
+          // ignore: avoid_print
+          ZoomDrawer.of(context)?.toggle();
         },
         icon: Icon(
           Icons.menu,

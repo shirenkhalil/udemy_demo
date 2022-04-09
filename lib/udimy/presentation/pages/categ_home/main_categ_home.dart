@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:udeme_demo/injection.dart';
-import 'package:udeme_demo/udimy/domain/use_cases/case.dart';
 import 'package:udeme_demo/udimy/presentation/pages/categ_home/main_screen/main_desktop.dart';
 import 'package:udeme_demo/udimy/presentation/pages/categ_home/main_screen/main_mobile.dart';
-import 'package:udeme_demo/udimy/presentation/pages/categories/main_screen/main_desktop.dart';
-import 'package:udeme_demo/udimy/presentation/pages/categories/main_screen/main_mobile.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/responsive.dart';
 
 

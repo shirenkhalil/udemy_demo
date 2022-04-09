@@ -4,7 +4,6 @@ import 'package:udeme_demo/udimy/presentation/pages/categories/desktop_parts/cou
 
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 
-import '../../../../domain/model/course/course_model.dart';
 
 class MainDesktopMyCourses extends StatefulWidget {
   MainDesktopMyCourses({Key? key}) : super(key: key);

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 import '../../../domain/model/course/course_model.dart';
 
@@ -16,6 +15,8 @@ List<CourseModel> courseList = [
     oldPrice: 1000,
     disPrice: 10 / 100,
     newPrice: newPrice(oldPrice: 1000, disPrice: 10 / 100),
+    description:'a spoken or written representation or account of a person, object, or event.',
+    type: 'science'
   ),
   CourseModel(
     id: 1,
@@ -27,6 +28,8 @@ List<CourseModel> courseList = [
     oldPrice: 1025,
     disPrice: 20 / 100,
     newPrice: newPrice(oldPrice: 1025, disPrice: 20 / 100),
+      description:'a spoken or written representation or account of a person, object, or event.',
+      type: 'arabic'
   ),
   CourseModel(
     id: 2,
@@ -38,6 +41,8 @@ List<CourseModel> courseList = [
     oldPrice: 1258.60,
     disPrice: 5 / 100,
     newPrice: newPrice(oldPrice: 1258.60, disPrice: 5 / 100),
+      description:'a spoken or written representation or account of a person, object, or event.',
+      type: 'english'
   ),
   CourseModel(
     id: 3,
@@ -48,7 +53,9 @@ List<CourseModel> courseList = [
     personName: 'Nelson Mandela ',
     oldPrice: 928.45,
     disPrice: 10 / 100,
-    newPrice: newPrice(oldPrice: 928.45, disPrice: 30 / 100),
+    newPrice: newPrice(oldPrice: 928.45, disPrice: 0 / 100),
+      description:'a spoken or written representation or account of a person, object, or event.',
+      type: 'math'
   ),
   CourseModel(
     id: 4,
@@ -60,6 +67,8 @@ List<CourseModel> courseList = [
     oldPrice: 2548,
     disPrice: 0 / 100,
     newPrice: newPrice(oldPrice: 2548, disPrice: 0 / 100),
+      description:'a spoken or written representation or account of a person, object, or event.',
+      type: 'chemistry'
   ),
   CourseModel(
     id: 5,
@@ -71,6 +80,8 @@ List<CourseModel> courseList = [
     oldPrice: 1000,
     disPrice: 0 / 100,
     newPrice: newPrice(oldPrice: 1000, disPrice: 0 / 100),
+      description:'a spoken or written representation or account of a person, object, or event.',
+      type: 'pharmaceutical'
   ),
   CourseModel(
     id: 6,
@@ -81,8 +92,24 @@ List<CourseModel> courseList = [
     oldPrice: 928,
     disPrice: 0 / 100,
     newPrice: newPrice(oldPrice: 928, disPrice: 10 / 100),
+    description:'a spoken or written representation or account of a person, object, or event.',
+    type: 'Engineering',
+    isCart: false,
+  ),
+  CourseModel(
+    id: 6,
+    title: 'Python',
+    image: 'web/assets/images/meeting.jpeg',
+    personImage: 'web/assets/images/user.png',
+    personName: 'Muhammad Ali',
+    oldPrice: 928,
+    disPrice: 0 / 100,
+    newPrice: newPrice(oldPrice: 928, disPrice: 10 / 100),
+    description:'a spoken or written representation or account of a person, object, or event.',
+    type: 'biology',
     isCart: false,
   ),
 ];
 
 List<CourseModel> coursesListCart = [];
+List<CourseModel> coursesListMyLearning = [];

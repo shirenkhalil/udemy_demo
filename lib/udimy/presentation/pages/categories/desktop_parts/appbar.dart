@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:udeme_demo/main.dart';
-import 'package:udeme_demo/udimy/presentation/pages/about_us/main_screen/main_desktop.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 
 import '../../../../domain/model/login/login_get.dart';

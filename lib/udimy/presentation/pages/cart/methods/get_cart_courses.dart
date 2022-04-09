@@ -4,3 +4,6 @@ import 'package:udeme_demo/udimy/domain/model/course/course_model.dart';
 List<CourseModel> getCartCourses(){
   return coursesListCart;
 }
+List<CourseModel> getMyLearningCourses(){
+  return coursesListMyLearning;
+}

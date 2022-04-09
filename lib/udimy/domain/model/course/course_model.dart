@@ -1,17 +1,13 @@
 class CourseModel {
   int id ;
-  String title;
-  String image;
-  String personImage;
-  String personName;
-  double oldPrice;
-  double newPrice;
-  double disPrice;
+  String title,description,image,personImage,personName ,type ;
+  double oldPrice ,newPrice ,disPrice ;
   bool   isCart;
 
   CourseModel({
     required this.id,
     required this. title,
+    required this.description,
     required this. image,
     required this. personImage,
     required this. personName,
@@ -19,10 +15,11 @@ class CourseModel {
     required this. newPrice,
     required this. disPrice,
     required this.isCart,
-  } );}
+   required this.type,
+  });
+}
 
 double newPrice ({oldPrice, disPrice}){
-  print('oldPrice=$oldPrice   disPrice= $disPrice');
   return
     oldPrice-(oldPrice*disPrice);
 }

@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:get/get.dart';
-import 'package:udeme_demo/main.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 
 
 
 class MainMobileSearch extends StatefulWidget {
-  MainMobileSearch({Key? key}) : super(key: key);
+  const MainMobileSearch({Key? key}) : super(key: key);
 
   @override
   _MainMobileSearchState createState() {
@@ -28,7 +26,7 @@ class _MainMobileSearchState extends State<MainMobileSearch> {
         elevation: 0,
         title: titleRow(context: context,text: 'Search'),
         leading: IconButton(
-          onPressed:() => ZoomDrawer.of(context)?.toggle() ?? Get.toNamed(HOME),
+          onPressed:() => ZoomDrawer.of(context)?.toggle(),
           icon:Icon(
             Icons.menu,
             color: mobColor,

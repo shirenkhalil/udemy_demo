@@ -11,7 +11,6 @@ import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/zoom_drawe
 
 import '../../../../data/data_sources/database/constant_data.dart';
 import '../../../../domain/model/categories/categories_model.dart';
-import '../../../../domain/model/course/course_model.dart';
 
 class MainMobileCategories extends StatefulWidget {
   MainMobileCategories({Key? key}) : super(key: key);

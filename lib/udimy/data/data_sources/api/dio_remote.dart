@@ -1,15 +1,10 @@
-import 'dart:convert';
 
-import 'package:dio/dio.dart';
 import 'package:udeme_demo/udimy/data/data_sources/api/dio_helper.dart';
-import 'package:udeme_demo/udimy/data/data_sources/database/constant_data.dart';
 import 'package:udeme_demo/udimy/domain/model/course/courses_dio.dart';
-import 'package:udeme_demo/udimy/domain/model/error/error_model.dart';
 import 'package:udeme_demo/udimy/domain/model/login/login_get.dart';
 import 'package:udeme_demo/udimy/domain/model/login/login_post.dart';
 import 'package:udeme_demo/udimy/domain/model/login/register_post.dart';
 
-import '../../../domain/model/test/test.dart';
 
 class DioRemote {
   DioHelper dioHelper;

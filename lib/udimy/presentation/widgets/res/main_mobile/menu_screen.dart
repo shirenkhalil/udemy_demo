@@ -1,6 +1,4 @@
-import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:udeme_demo/udimy/domain/model/login/login_get.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
@@ -65,7 +63,8 @@ class MenuPage extends StatelessWidget {
         children: [
           SizedBox(height: 10,),
           CircleAvatar(
-            backgroundImage: AssetImage('${user.img}'),
+            // backgroundImage: NetworkImage('${user.img}'),
+            backgroundImage: NetworkImage('https://img.lovepik.com/photo/20211119/small/lovepik-personal-image-picture_500196564.jpg'),
             maxRadius:40,
           ),
           Spacer(),
@@ -97,7 +96,7 @@ class MenuItems{
   static const categories =  MenuItem('Categories',Icons.list_outlined);
   static const courses =  MenuItem('Courses',Icons.library_books_rounded);
   static const myLearning = MenuItem('My Learning',Icons.file_copy_outlined);
-  static const favorite =  MenuItem('My Favorite',Icons.shopping_cart_outlined);
+  static const myCart =  MenuItem('My Cart',Icons.shopping_cart_outlined);
   static const notifications =  MenuItem('Notifications',Icons.notifications);
   static const setting =  MenuItem('Setting',Icons.settings);
   static const login =  MenuItem('Login',Icons.how_to_reg);
@@ -111,7 +110,7 @@ class MenuItems{
     categories,
     courses,
     myLearning,
-    favorite,
+    myCart,
     notifications,
     setting,
     login,
