@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors_in_immutables
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -138,14 +140,14 @@ class _MainMobileCategoriesState extends State<MainMobileCategories> {
                   SizedBox(
                     height: 10,
                   ),
-                  Container(
+                  SizedBox(
                     height: 50,
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: ListView.separated(
                         scrollDirection: Axis.horizontal,
                         shrinkWrap: true,
-                        itemBuilder: (context, index) => BuildMobCatMainItem(CatModel.catList[index]),
+                        itemBuilder: (context, index) => buildMobCatMainItem(CatModel.catList[index]),
                         separatorBuilder: (context, index) => SizedBox(width: 5,),
                         itemCount:CatModel.catList.length,
                       ),
@@ -162,7 +164,7 @@ class _MainMobileCategoriesState extends State<MainMobileCategories> {
       ),
     );
   }
-  Widget BuildMobCatMainItem (CatModel model)=> Container(
+  Widget buildMobCatMainItem (CatModel model)=> SizedBox(
     height: 50,
     width: 150,
     child:ButtonCategoriesItem(

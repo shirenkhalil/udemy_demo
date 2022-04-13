@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:udeme_demo/main.dart';
 import 'package:udeme_demo/udimy/domain/model/login/login_get.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 
@@ -20,7 +22,6 @@ class MenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-
     return Scaffold(
       backgroundColor:Colors.blueGrey[300],
       body: SafeArea(
@@ -30,7 +31,7 @@ class MenuPage extends StatelessWidget {
             ...MenuItems.all.map(buildMenuItem).toList(),
           //  Spacer(flex:2,),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical:6.0),
+              padding: const EdgeInsets.symmetric(horizontal: 12.0,),
               child: Row(
                 children: [
                   Icon(
@@ -38,23 +39,27 @@ class MenuPage extends StatelessWidget {
                   ),
                  SizedBox(width:5,),
                   textButtonItem(
-                    onPressed: (){},
+                    onPressed: ()=> Get.toNamed(HOME),
                     color: Colors.white,
                     text: 'LOGOUT',
                     size: 25,),],),),
           ],),),);
   }
+
+
   Widget buildMenuItem(MenuItem item) => ListTileTheme(
     selectedColor: Colors.white,
     child: ListTile(
       selectedTileColor: Colors.blueGrey,
       selected: currentItem==item,
-      minLeadingWidth:10,
+      minLeadingWidth: 10,
       leading:Icon(item.icon,color: Colors.white ,size: 18),
       title:Text(item.title,style: TextStyle(color: Colors.white,fontSize: 20)),
       onTap:()=> onSelectedItem(item),
     ),
   );
+
+
   Widget buildHeader (User user)=> DrawerHeader(
     child:Align(
       alignment: Alignment.topLeft,

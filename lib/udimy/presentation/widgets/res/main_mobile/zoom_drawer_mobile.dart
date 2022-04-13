@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, avoid_types_as_parameter_names, non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
@@ -26,7 +28,7 @@ class DrawerMobile extends StatefulWidget {
 
   @override
   State<DrawerMobile> createState() => _HomePageState();
-  DrawerMobile({Key? key,this.menuItem = mypage.MenuItems.myLearning,}) : super(key: key);
+  DrawerMobile({Key? key,this.menuItem = mypage.MenuItems.home,}) : super(key: key);
     mypage.MenuItem menuItem;
 }
 class _HomePageState extends State<DrawerMobile> {
@@ -35,7 +37,6 @@ class _HomePageState extends State<DrawerMobile> {
   @override
   Widget build(BuildContext context) {
 
-    // ignore: avoid_print
     print('get zoom drawer');
     return ZoomDrawer(
       controller: drawerController,
@@ -44,15 +45,13 @@ class _HomePageState extends State<DrawerMobile> {
         builder: (context) => mypage.MenuPage(
             currentItem: widget.menuItem,
             onSelectedItem: (item) {
-              // ignore: avoid_print
               print('get item :: ${item.title}');
               setState(() => widget.menuItem = item);
-
               ZoomDrawer.of(context)!.close();
             }),
       ),
       style: DrawerStyle.style1,
-      borderRadius: 40.0,
+      borderRadius:40.0,
       showShadow: true,
       angle: 0.0,
       menuBackgroundColor: Colors.blueGrey[600]!,
@@ -92,18 +91,14 @@ class _HomePageState extends State<DrawerMobile> {
   }
 }
 
-class MainCategoriesHome {
-}
+class MainCategoriesHome {}
 
 // ignore: use_key_in_widget_constructors
 class MenuWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        onPressed: () {
-          // ignore: avoid_print
-          ZoomDrawer.of(context)?.toggle();
-        },
+        onPressed: ()=>ZoomDrawer.of(context)?.toggle(),
         icon: Icon(
           Icons.menu,
           color: mobColor,
@@ -111,4 +106,10 @@ class MenuWidget extends StatelessWidget {
         ),
       );
   }
+}
+Future navigateTo(context,Widget){
+  return Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context)=> Widget)
+  );
 }

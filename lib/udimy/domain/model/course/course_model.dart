@@ -1,8 +1,12 @@
+// ignore_for_file: avoid_print
+
 class CourseModel {
   int id ;
   String title,description,image,personImage,personName ,type ;
   double oldPrice ,newPrice ,disPrice ;
   bool   isCart;
+
+
 
   CourseModel({
     required this.id,
@@ -23,3 +27,4 @@ double newPrice ({oldPrice, disPrice}){
   return
     oldPrice-(oldPrice*disPrice);
 }
+

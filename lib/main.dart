@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:udeme_demo/injection.dart';
@@ -26,14 +28,15 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(
             name: HOME,
-            page: () => DrawerMobile(menuItem: MenuItems.categories,),
+            page: () => DrawerMobile(menuItem: MenuItems.home,),
             transition: Transition.fadeIn),
         GetPage(
             name: CATEGORIES,
             page: () => DrawerMobile(menuItem: MenuItems.categories,),
             transition: Transition.fadeIn),
         GetPage(
-            name: CART, page: () => DrawerMobile(menuItem: MenuItems.myCart,),
+            name: CART,
+            page: () => DrawerMobile(menuItem: MenuItems.myCart,),
             transition: Transition.fadeIn),
         GetPage(
             name: NOTIFICATION,

@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors_in_immutables
+
 import 'package:flutter/material.dart';
 import 'package:udeme_demo/udimy/presentation/pages/cart/main_screen/main_desktop.dart';
 import 'package:udeme_demo/udimy/presentation/pages/cart/main_screen/main_mobile.dart';

@@ -1,6 +1,9 @@
 
+import 'package:udeme_demo/udimy/domain/model/course/courses_dio.dart';
+
 import '../../../domain/model/course/course_model.dart';
 
+// ignore: constant_identifier_names
 const String URL = 'https://udemy2server.herokuapp.com/rest';
 //const String URL = 'http://0.0.0.0:8080/rest';
 
@@ -32,6 +35,7 @@ List<CourseModel> courseList = [
       type: 'arabic'
   ),
   CourseModel(
+
     id: 2,
     isCart: false,
     title: 'Financial Markets ',
@@ -45,6 +49,7 @@ List<CourseModel> courseList = [
       type: 'english'
   ),
   CourseModel(
+
     id: 3,
     isCart: false,
     title: 'Learning from deep learning.ai',
@@ -53,11 +58,12 @@ List<CourseModel> courseList = [
     personName: 'Nelson Mandela ',
     oldPrice: 928.45,
     disPrice: 10 / 100,
-    newPrice: newPrice(oldPrice: 928.45, disPrice: 0 / 100),
+    newPrice: newPrice(oldPrice: 928.45, disPrice: 10 / 100),
       description:'a spoken or written representation or account of a person, object, or event.',
       type: 'math'
   ),
   CourseModel(
+
     id: 4,
     isCart: false,
     title: 'Data Science',
@@ -71,6 +77,7 @@ List<CourseModel> courseList = [
       type: 'chemistry'
   ),
   CourseModel(
+
     id: 5,
     isCart: false,
     title: 'Python',
@@ -91,12 +98,13 @@ List<CourseModel> courseList = [
     personName: 'Muhammad Ali',
     oldPrice: 928,
     disPrice: 0 / 100,
-    newPrice: newPrice(oldPrice: 928, disPrice: 10 / 100),
+    newPrice: newPrice(oldPrice: 928, disPrice: 0 / 100),
     description:'a spoken or written representation or account of a person, object, or event.',
     type: 'Engineering',
     isCart: false,
   ),
   CourseModel(
+
     id: 6,
     title: 'Python',
     image: 'web/assets/images/meeting.jpeg',
@@ -104,7 +112,7 @@ List<CourseModel> courseList = [
     personName: 'Muhammad Ali',
     oldPrice: 928,
     disPrice: 0 / 100,
-    newPrice: newPrice(oldPrice: 928, disPrice: 10 / 100),
+    newPrice: newPrice(oldPrice: 928, disPrice: 0 / 100),
     description:'a spoken or written representation or account of a person, object, or event.',
     type: 'biology',
     isCart: false,
@@ -113,3 +121,9 @@ List<CourseModel> courseList = [
 
 List<CourseModel> coursesListCart = [];
 List<CourseModel> coursesListMyLearning = [];
+
+List<CourseModel> cartPrice = [];
+List <CourseModel> coursesPrice= [];
+
+
+

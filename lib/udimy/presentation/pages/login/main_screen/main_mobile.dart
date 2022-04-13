@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors_in_immutables, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:udeme_demo/main.dart';

@@ -30,7 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^2.3.1
-  flutter_zoom_drawer: 3.0.0
+  flutter_zoom_drawer: ^3.0.1
   get: ^4.6.1
   carousel_slider: ^4.0.0
   buildcondition: ^0.0.4
@@ -38,6 +38,7 @@ dependencies:
   get_it: ^7.2.0
   get_storage: ^2.0.3
   dio: ^4.0.4
+  collection: ^1.15.0
 
 
 
@@ -64,15 +65,20 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
+include: package:flutter_lints/flutter.yaml
 
+linter:
   rules:
 prefer_const_literals_to_create_immutables: false
+unrelated_type_equality_checks: false
 prefer_typing_uninitialized_variables: false
 prefer_const_constructors: false
 file_names: false
+avoid_print: false
 
 
-flutter_lints: ^1.0.0
+
+#flutter_lints: ^1.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
