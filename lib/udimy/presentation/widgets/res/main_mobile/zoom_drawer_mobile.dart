@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:get/get.dart';
+import 'package:udeme_demo/main.dart';
 import 'package:udeme_demo/udimy/presentation/pages/categ_home/main_categ_home.dart';
 import 'package:udeme_demo/udimy/presentation/pages/register/main_register.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
@@ -98,7 +100,7 @@ class MenuWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        onPressed: ()=>ZoomDrawer.of(context)?.toggle(),
+        onPressed: ()=> ZoomDrawer.of(context)?.toggle(),
         icon: Icon(
           Icons.menu,
           color: mobColor,
@@ -113,3 +115,4 @@ Future navigateTo(context,Widget){
       MaterialPageRoute(builder: (context)=> Widget)
   );
 }
+// ZoomDrawer.of(context)?.toggle() ?? Get.toNamed(HOME),
