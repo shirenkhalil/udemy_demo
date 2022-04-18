@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:udeme_demo/udimy/data/data_sources/database/constant_data.dart';
 import 'package:udeme_demo/udimy/domain/model/course/course_model.dart';
-import 'package:udeme_demo/udimy/presentation/pages/cart/methods/get_cart_courses.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/zoom_drawer_mobile.dart';
 

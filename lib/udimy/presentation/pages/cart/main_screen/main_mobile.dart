@@ -1,10 +1,10 @@
-// ignore_for_file: avoid_print, duplicate_ignore
+// ignore_for_file: avoid_print, duplicate_ignore, unused_local_variable
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:udeme_demo/payment.dart';
 import 'package:udeme_demo/udimy/data/data_sources/database/constant_data.dart';
 import 'package:udeme_demo/udimy/domain/model/course/course_model.dart';
-import 'package:udeme_demo/udimy/domain/model/course/courses_dio.dart';
-import 'package:udeme_demo/udimy/presentation/pages/cart/methods/get_cart_courses.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/component.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/zoom_drawer_mobile.dart';
 
@@ -32,6 +32,8 @@ class _MainMobileCartState extends State<MainMobileCart> {
 
   @override
   Widget build(BuildContext context) {
+    double allPrice = getTotal(coursesListCart);
+    final paymentController = Get.put(PaymentController());
     CourseModel course;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -69,30 +71,30 @@ class _MainMobileCartState extends State<MainMobileCart> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
-                  Text('Total:',
+                  Text('TOTAL:',
                     style: TextStyle(
-                        color: black,
-                        fontWeight: FontWeight.w800,
-                      fontSize: 25,
+                      color: black,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 20,
                     ),),
                   SizedBox(width: 5),
-                  Text('$total',style: TextStyle(
-                    color: Colors.grey[600],
-                    fontWeight: FontWeight.w800,
-                    fontSize: 25,
-                  ),),
-                  SizedBox(
-                    height: 100,
-                    width: 100,
-                    child: Text('$totalPrice',style: TextStyle(
+                  Container(
+                    padding: EdgeInsets.only(top: 5),
+                    child: Text('$total items',style: TextStyle(
                       color: Colors.grey[600],
                       fontWeight: FontWeight.w800,
-                      fontSize: 25,
+                      fontSize: 18,
                     ),),
                   ),
-                  // Spacer(),
-
-                  ],
+                  Spacer(),
+                  Text(
+                      '${allPrice.toPrecision(2)}',
+                    style: TextStyle(
+                      color: black,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 20,
+                    ),),
+                ],
               ),
               Container(
               margin: EdgeInsets.all(10),
@@ -104,9 +106,11 @@ class _MainMobileCartState extends State<MainMobileCart> {
                 ),
                 child: textButtonItem(
                     onPressed: (){
-                      setState(() {
-                        totalList (coursesListCart,coursesListMyLearning);
-                      });
+                      paymentController.makePayment(
+                          amount:'5',
+                          currency :'USD');
+
+                      // totalList (coursesListCart,coursesListMyLearning);
                     },
                   text: 'BuyNow',
                   color: Colors.white,
@@ -119,9 +123,12 @@ class _MainMobileCartState extends State<MainMobileCart> {
       ),
     );
   }
+
+
+
   Widget buildCartItem(context, CourseModel course) {
     final oldPrice = '${course.oldPrice}';
-    final newPrice = '${course.newPrice.round()}';
+    final newPrice = '${course.newPrice.toPrecision(1)}';
     final disPrice = '${course.disPrice}';
     return Container(
       height: 100,
@@ -242,25 +249,7 @@ class _MainMobileCartState extends State<MainMobileCart> {
   // var count = coursesListCart.where((c) => c.id == coursesListCart.length).toList().length;
   var total = coursesListCart.length;
  // ignore: use_function_type_syntax_for_parameters
-void totalPrice ( CourseModel course){
-  print(':::::::::::::::::::::::::::::::::::::');
-  int index = coursesPrice.indexWhere((element) => element.newPrice == course.newPrice.round() );
-  cartPrice.addAll(coursesPrice);
-  print('cartPrice');
-   if(cartPrice.isNotEmpty){
-    int i;
-    var sum=0;
-    for (i=0 ; i>=( cartPrice.length);++i){
-      sum += (cartPrice[i])as int;
-      // ignore: avoid_print
-      print ('sum = $sum');
-    }
-    return print('$sum');}
-   else {
-     print('/////////////////////////////////////');
-     print('coursesListCart.length = ${coursesListCart.length}');
-     print('total = $total');
-     return  print('0');
-   }
   }
-}
+
+
+

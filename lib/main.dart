@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 import 'package:udeme_demo/injection.dart';
 import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/menu_screen.dart';
@@ -8,7 +9,9 @@ import 'package:udeme_demo/udimy/presentation/widgets/res/main_mobile/zoom_drawe
 
  main()async{
   WidgetsFlutterBinding.ensureInitialized();
+
  await init();
+  Stripe.publishableKey = 'pk_test_TYooMQauvdEDq54NiTphI7jx';    // payment
     runApp(const MyApp());// للتاكد من انتهاء كل waiting function
 }
 

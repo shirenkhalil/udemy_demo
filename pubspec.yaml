@@ -39,6 +39,8 @@ dependencies:
   get_storage: ^2.0.3
   dio: ^4.0.4
   collection: ^1.15.0
+  flutter_stripe: ^2.4.0
+  http: ^0.13.4
 
 
 
@@ -53,7 +55,7 @@ dependencies:
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
-  flutter_lints: 1.0.4
+  flutter_lints: ^1.0.4
 
 
 

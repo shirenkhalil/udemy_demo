@@ -1,6 +1,5 @@
 
-import 'package:udeme_demo/udimy/domain/model/course/courses_dio.dart';
-
+// ignore_for_file: avoid_function_literals_in_foreach_calls, avoid_pri, avoid_print
 import '../../../domain/model/course/course_model.dart';
 
 // ignore: constant_identifier_names
@@ -122,8 +121,29 @@ List<CourseModel> courseList = [
 List<CourseModel> coursesListCart = [];
 List<CourseModel> coursesListMyLearning = [];
 
-List<CourseModel> cartPrice = [];
-List <CourseModel> coursesPrice= [];
+List<CourseModel> getCoursesListCart ()=> coursesListCart;
+
+List<CourseModel> getCoursesListMyLearning ()=> coursesListMyLearning;
+
+totalList (coursesListCart,coursesListMyLearning){
+  coursesListMyLearning.addAll(coursesListCart);
+  coursesListCart.clear();
+}
+
+
+
+
+
+getTotal (List<CourseModel> price)
+{
+  double total =0;
+  price.forEach((element)
+  {
+    total += element.newPrice;
+    print('total::::$total');
+  });
+  return total;
+}
 
 
 
