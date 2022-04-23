@@ -41,6 +41,7 @@ dependencies:
   collection: ^1.15.0
   flutter_stripe: ^2.4.0
   http: ^0.13.4
+  flutter_svg: ^1.0.3
 
 
 

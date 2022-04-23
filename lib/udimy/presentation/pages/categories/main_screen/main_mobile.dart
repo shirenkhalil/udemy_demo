@@ -141,7 +141,7 @@ class _MainMobileCategoriesState extends State<MainMobileCategories> {
                     height: 10,
                   ),
                   SizedBox(
-                    height: 50,
+                    height: 80,
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: ListView.separated(
@@ -164,13 +164,13 @@ class _MainMobileCategoriesState extends State<MainMobileCategories> {
       ),
     );
   }
-  Widget buildMobCatMainItem (CatModel model)=> SizedBox(
-    height: 50,
+  Widget buildMobCatMainItem (CatModel model)=> ButtonCategoriesItem(
+    text: model.title,
+    backgroundColor: model.color,
+    assentImage: model.imageUrl,
+    height:80,
     width: 150,
-    child:ButtonCategoriesItem(
-      text: model.title,
-      onPressed: () {},
-    ),
+    onPressed: () {},
   );
   // Widget CourseBuildItem(CourseModel course) => Center(child: MobCourseItem());
 }

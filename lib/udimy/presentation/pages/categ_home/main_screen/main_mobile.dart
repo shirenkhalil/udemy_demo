@@ -5,7 +5,7 @@ import '../../../../domain/model/categories/categories_model.dart';
 import '../../../widgets/res/main_mobile/zoom_drawer_mobile.dart';
 
 class MainMobileCategoriesH extends StatefulWidget {
-  MainMobileCategoriesH({Key? key}) : super(key: key);
+  const MainMobileCategoriesH({Key? key}) : super(key: key);
 
   @override
   _MainMobileCategoriesHState createState() {
@@ -53,7 +53,7 @@ class _MainMobileCategoriesHState extends State<MainMobileCategoriesH> {
               scrollDirection: Axis.vertical,
               physics: BouncingScrollPhysics(),
               shrinkWrap: true,
-                itemBuilder: (context, index) =>BuildMobCatScreenItem (CatModel.catList[index]),
+                itemBuilder: (context, index) =>buildMobCatScreenItem (CatModel.catList[index]),
                 separatorBuilder: (context,index)=>Divider(
                   color: mobColor,
                   thickness: 3,
@@ -73,24 +73,36 @@ class _MainMobileCategoriesHState extends State<MainMobileCategoriesH> {
       ),
     );
   }
-  Widget BuildMobCatScreenItem (CatModel model) =>Padding(
+  Widget buildMobCatScreenItem (CatModel model) =>Padding(
     padding: const EdgeInsets.symmetric(horizontal: 15),
-    child: Row(
-      children: [
-        Text('${model.title}',
-          style: TextStyle(
-            fontSize:35,
-            color: black,
-            fontWeight: FontWeight.bold,
+    child: Container(
+      height: 50,
+      alignment: Alignment.topCenter,
+      decoration: BoxDecoration(
+        color: model.color,
+        borderRadius: BorderRadius.circular(30),
+      ),
+      child: Row(
+        children: [
+        ButtonCategoriesItem(
+        text: model.title,
+        backgroundColor: model.color,
+        assentImage: model.imageUrl,
+        height:50,
+        width: 300,
+        onPressed: () {},
+      ),
+          Spacer(),
+          Align(
+            alignment: Alignment.topCenter,
+            child: IconButton(
+                onPressed: (){},
+                icon: Icon(Icons.arrow_forward_ios,size: 35,color: Colors.white,)
+            ),
           ),
-        ),
-        Spacer(),
-        IconButton(
-            onPressed: (){},
-            icon: Icon(Icons.arrow_forward_ios,size: 35,color: black,)
-        ),
 
-      ],
+        ],
+      ),
     ),
   );
 

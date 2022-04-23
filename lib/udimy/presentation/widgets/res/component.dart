@@ -1,4 +1,7 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 const Color black = Colors.black87;
@@ -28,12 +31,10 @@ Widget textButtonItem({
 }) {
   return TextButton(
       onPressed: onPressed,
-      child: Container(
-        child: Text(
-          text!,
-          style: TextStyle(
-              color: color, fontSize: size, fontWeight: FontWeight.normal),
-        ),
+      child: Text(
+        text!,
+        style: TextStyle(
+            color: color, fontSize: size, fontWeight: FontWeight.normal),
       ));
 }
 
@@ -205,24 +206,38 @@ Widget ButtonCategoriesItem({
   double? borderRadius = 20,
   double? elevation = 5,
   final void Function()? onPressed,
+  Color? backgroundColor,
+  String ? assentImage,
   context,
 
 }) {
   return Container(
     height: height,
     width: width,
+    padding: EdgeInsets.symmetric(vertical:5),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(borderRadius!),
-      color: green1,
-      border:Border.all(color: iconGreen,width: 3, ),
+      color: backgroundColor,
+      border:Border.all(color: backgroundColor!,width: 3, ),
     ),
     child: TextButton(
       onPressed: onPressed,
-      child: Text(
-        isUpperCase ? text!.toUpperCase() : text!,
-        style: TextStyle(color:black,fontSize: 20,),
-        maxLines: 1,
-        overflow:TextOverflow.ellipsis,
+      child:Row(
+        children: [
+         Expanded (
+             child: SvgPicture.asset(assentImage!,),
+         ),
+          SizedBox(width: 2,),
+          Expanded (
+            child: Text(
+              isUpperCase ? text!.toUpperCase() : text!,
+              style: TextStyle(color:Colors.white,fontSize: 20,),
+              maxLines: 1,
+              overflow:TextOverflow.ellipsis,
+            ),
+            flex: 2,
+          ),
+        ],
       ),
     ),
   );
